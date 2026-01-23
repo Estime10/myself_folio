@@ -1,36 +1,172 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Portfolio — Vision, ADN & Design System
 
-## Getting Started
+## 🎯 Objectif du projet
 
-First, run the development server:
+Créer un **portfolio qui sort radicalement du lot**, pensé comme un **produit**, pas comme une vitrine marketing.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Ce portfolio doit :
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+* refléter un **niveau senior confirmé**
+* montrer une **maîtrise technique et visuelle**
+* incarner un style **pixel‑perfect, street, urbain**, tout en restant **corporate et crédible**
+* prouver la cohérence entre **discours, architecture et exécution**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🧠 ADN & Concept
 
-## Learn More
+### Concept global
 
-To learn more about Next.js, take a look at the following resources:
+> **Developer Control Room**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Le portfolio est conçu comme :
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* un poste de travail
+* un dashboard vivant
+* une interface système
 
-## Deploy on Vercel
+Pas :
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* de landing page marketing
+* de hero inutile
+* de storytelling artificiel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Mais :
+
+* des panels
+* de la donnée
+* des modules
+* une logique produit
+
+---
+
+## 🎨 Design System — Palette officielle
+
+### 🎯 Principes couleur
+
+* Ambiance **night / urban / néon**
+* Contraste élevé
+* Accents rares mais puissants
+* Aucun blanc pur
+
+### 🎨 Palette exacte
+
+#### Backgrounds
+
+* `--bg-primary`: `#0B0F1A`
+  Fond principal (bleu nuit profond)
+
+* `--bg-secondary`: `#0E1224`
+  Surfaces secondaires / panels
+
+* `--bg-tertiary`: `#151A33`
+  Hover, cartes actives, overlays
+
+#### Textes
+
+* `--text-primary`: `#E6E8EF`
+  Texte principal (jamais blanc)
+
+* `--text-secondary`: `#A1A6C3`
+  Metadata, descriptions
+
+* `--text-muted`: `#6F7390`
+  Labels secondaires
+
+#### Accents
+
+* `--accent-primary`: `#FF7A18`
+  Orange néon (actions, focus, highlights)
+
+* `--accent-danger`: `#E5484D`
+  Rouge urbain (états critiques)
+
+* `--accent-info`: `#4C6FFF`
+  Bleu tech (liens, info)
+
+* `--accent-purple`: `#7C6FFF`
+  Violet indigo (animations subtiles)
+
+---
+
+## 🔤 Typographie — Identité forte
+
+### 🎯 Principes
+
+* Lisibilité maximale
+* Sérieux, technique, précis
+* Hiérarchie claire
+* Mono utilisée comme **signal technique**, pas gadget
+
+### Font principale (UI / contenu)
+
+**Inter**
+
+* Moderne
+* Corporate
+* Excellente lisibilité
+* Idéale pour interfaces complexes
+
+Utilisation :
+
+* paragraphes
+* navigation
+* descriptions
+
+---
+
+### Font secondaire (tech / data / labels)
+
+**JetBrains Mono**
+
+Utilisation :
+
+* titres techniques
+* chiffres
+* badges
+* metadata
+* sections projets
+
+👉 La mono donne le ton : *engineering first*
+
+---
+
+### Règles typographiques
+
+* Pas plus de 2 fonts
+* Tailles strictement définies
+* Pas de font décorative
+* Pas de font "startup trendy"
+
+---
+
+## ⚙️ Implémentation technique (preview)
+
+* `next/font` uniquement
+* Fonts centralisées dans `/lib/config/fonts.ts`
+* Aucune importation directe dans les composants
+
+---
+
+## 🧭 Prochaines étapes
+
+1. Définition du **layout Dashboard** (grille & panels)
+2. Structure des sections :
+
+   * Home / Control Room
+   * Projects (fiches techniques)
+   * About (mentalité & méthode)
+3. Définition des **animations clés**
+4. Setup Next.js (architecture stricte)
+
+---
+
+## 🧠 Règle fondamentale
+
+Ce portfolio doit être :
+
+> **la preuve concrète de ton niveau**
+
+Chaque choix doit pouvoir être défendu techniquement et visuellement.
+
+Aucun compromis sur la qualité.

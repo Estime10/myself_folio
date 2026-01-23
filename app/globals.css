@@ -1,26 +1,215 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Backgrounds - Base colors for gradients */
+  --bg-primary-base: #0b0f1a;
+  --bg-secondary-base: #0e1224;
+  --bg-tertiary-base: #151a33;
+
+  /* Backgrounds - Linear gradients (iOS style) */
+  --bg-primary: linear-gradient(135deg, #0b0f1a 0%, #0e1224 50%, #0b0f1a 100%);
+  --bg-secondary: linear-gradient(
+    135deg,
+    #0e1224 0%,
+    #151a33 50%,
+    #0e1224 100%
+  );
+  --bg-tertiary: linear-gradient(135deg, #151a33 0%, #1a2340 50%, #151a33 100%);
+
+  /* Textes - Solid colors */
+  --text-primary: #e6e8ef;
+  --text-secondary: #a1a6c3;
+  --text-muted: #6f7390;
+
+  /* Accents - RGBA for modern transparency */
+  --accent-primary: rgba(255, 122, 24, 0.9);
+  --accent-primary-hover: rgba(255, 122, 24, 1);
+  --accent-danger: rgba(229, 72, 77, 0.9);
+  --accent-danger-hover: rgba(229, 72, 77, 1);
+  --accent-info: rgba(76, 111, 255, 0.9);
+  --accent-info-hover: rgba(76, 111, 255, 1);
+  --accent-purple: rgba(124, 111, 255, 0.9);
+  --accent-purple-hover: rgba(124, 111, 255, 1);
+
+  /* Body background (alias pour bg-primary) */
+  --var-bg-body: var(--bg-primary-base);
+
+  /* Fonts */
+  --font-inter: var(--font-inter);
+  --font-jetbrains-mono: var(--font-jetbrains-mono);
+
+  /* Liquid Glass iOS - Variables */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: rgba(0, 0, 0, 0.3);
+  --glass-blur: blur(20px) saturate(180%);
+
+  /* Safe Area Insets - iOS notch & navigation */
+  --safe-area-inset-top: env(safe-area-inset-top);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom);
+  --safe-area-inset-left: env(safe-area-inset-left);
+  --safe-area-inset-right: env(safe-area-inset-right);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Breakpoints - Mobile First */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* Backgrounds - Solid fallback for Tailwind */
+  --color-bg-primary: var(--bg-primary-base);
+  --color-bg-secondary: var(--bg-secondary-base);
+  --color-bg-tertiary: var(--bg-tertiary-base);
+  --color-bg-body: var(--var-bg-body);
+
+  /* Textes */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  /* Accents - RGBA */
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-danger: var(--accent-danger);
+  --color-accent-info: var(--accent-info);
+  --color-accent-purple: var(--accent-purple);
+
+  /* Fonts */
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset uniquement pour les éléments par défaut, pas tous */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-primary);
+  background-color: var(--var-bg-body);
+  color: var(--text-primary);
+  font-family:
+    var(--font-inter),
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  min-height: 100vh;
+  /* Safe Area Insets - iOS notch & navigation */
+  padding-top: var(--safe-area-inset-top);
+  padding-bottom: var(--safe-area-inset-bottom);
+  padding-left: var(--safe-area-inset-left);
+  padding-right: var(--safe-area-inset-right);
+}
+
+/* Hover uniquement sur les appareils qui supportent le hover (desktop) */
+/* Sur mobile/tablette tactile, les effets hover sont désactivés automatiquement */
+@media (hover: none) and (pointer: coarse) {
+  /* Désactiver les transitions/transformations au hover sur tactile */
+  *:hover {
+    transform: none !important;
+  }
+}
+
+/* Alternative: utiliser @media (hover: hover) pour cibler uniquement desktop */
+/* Les classes avec hover:lg-* fonctionneront uniquement sur desktop */
+
+/* Liquid Glass iOS - Utility classes */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 var(--glass-shadow);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+.glass-subtle {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Utility classes pour safe-area */
+.safe-area-top {
+  padding-top: var(--safe-area-inset-top);
+}
+
+.safe-area-bottom {
+  padding-bottom: var(--safe-area-inset-bottom);
+}
+
+.safe-area-left {
+  padding-left: var(--safe-area-inset-left);
+}
+
+.safe-area-right {
+  padding-right: var(--safe-area-inset-right);
+}
+
+.safe-area-x {
+  padding-left: var(--safe-area-inset-left);
+  padding-right: var(--safe-area-inset-right);
+}
+
+.safe-area-y {
+  padding-top: var(--safe-area-inset-top);
+  padding-bottom: var(--safe-area-inset-bottom);
+}
+
+.safe-area {
+  padding-top: var(--safe-area-inset-top);
+  padding-bottom: var(--safe-area-inset-bottom);
+  padding-left: var(--safe-area-inset-left);
+  padding-right: var(--safe-area-inset-right);
 }
