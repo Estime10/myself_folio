@@ -3,12 +3,14 @@
 import gsap from "gsap";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useRef, useEffect, useLayoutEffect } from "react";
 import { navigationItems } from "@/features/navigation";
 import { useNavigation } from "../../hooks/useNavigation";
 
 export function MobileMenuWrapper() {
   const t = useTranslations("common");
+  const pathname = usePathname();
   const { isMobileMenuOpen, closeMobileMenu } = useNavigation();
   const overlayRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -78,11 +80,20 @@ export function MobileMenuWrapper() {
         <nav className="flex flex-col gap-1 mt-8">
           {navigationItems.map((item) => {
             const key = item.translationKey.replace("common.", "");
-            return (
+            const isActive = pathname === item.href;
+            return isActive ? (
+              <span
+                key={item.href}
+                className="block py-3 px-2 text-lg font-medium rounded-lg text-accent-primary uppercase"
+                aria-current="page"
+              >
+                {t(key)}
+              </span>
+            ) : (
               <Link
                 key={item.href}
                 href={item.href}
-                className="block py-3 px-2 text-lg font-medium rounded-lg transition-colors hover:bg-white/10 hover:text-accent-primary"
+                className="block py-3 px-2 text-lg font-medium rounded-lg transition-colors lg:hover:bg-white/10 lg:hover:text-accent-primary uppercase "
                 onClick={closeMobileMenu}
               >
                 {t(key)}

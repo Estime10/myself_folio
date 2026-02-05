@@ -92,7 +92,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
           <button
             type="button"
             onClick={onClose}
-            className="rounded-lg p-3 text-text-secondary transition-colors hover:bg-white/10 hover:text-text-primary"
+            className="rounded-lg p-3 text-text-secondary transition-colors lg:hover:bg-white/10 lg:hover:text-text-primary"
             aria-label={t("close")}
           >
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
@@ -107,7 +107,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
               href={link.href}
               target={link.external ? "_blank" : undefined}
               rel={link.external ? "noopener noreferrer" : undefined}
-              className="block rounded-lg py-3 px-3 text-lg font-medium text-text-primary transition-colors hover:bg-white/10 hover:text-accent-primary"
+              className="block rounded-lg py-3 px-3 text-lg font-medium text-text-primary transition-colors lg:hover:bg-white/10 lg:hover:text-accent-primary"
               onClick={onClose}
             >
               {link.label}

@@ -26,7 +26,7 @@ export function LanguageToggle({ currentLocale }: LanguageToggleProps) {
               ${
                 currentLocale === lang.code
                   ? "text-accent-primary"
-                  : "text-text-secondary lg:hover:text-text-primary hover:cursor-pointer"
+                  : "ttext-accent-primary lg:hover:text-text-primary hover:cursor-pointer"
               }
               ${isPending ? "opacity-50 cursor-not-allowed" : ""}
             `}
