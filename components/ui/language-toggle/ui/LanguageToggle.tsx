@@ -15,7 +15,7 @@ export function LanguageToggle({ currentLocale }: LanguageToggleProps) {
   const { isPending, handleLanguageChange } = useLanguage();
 
   return (
-    <div className="flex items-center text-2xl font-bold">
+    <div className="flex items-center text-base font-bold">
       {languages.map((lang, index) => (
         <div key={lang.code} className="flex items-center ">
           <button
@@ -25,7 +25,7 @@ export function LanguageToggle({ currentLocale }: LanguageToggleProps) {
               transition-all
               ${
                 currentLocale === lang.code
-                  ? "text-black"
+                  ? "text-accent-primary"
                   : "text-text-secondary lg:hover:text-text-primary hover:cursor-pointer"
               }
               ${isPending ? "opacity-50 cursor-not-allowed" : ""}

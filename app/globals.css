@@ -1,20 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  /* Backgrounds - Base colors for gradients */
-  --bg-primary-base: #0b0f1a;
-  --bg-secondary-base: #0e1224;
-  --bg-tertiary-base: #151a33;
+  /* Backgrounds - Palette noir gris cendre */
+  --bg-primary-base: #0a0a0c;
+  --bg-secondary-base: #141418;
+  --bg-tertiary-base: #1c1c20;
 
-  /* Backgrounds - Linear gradients (iOS style) */
-  --bg-primary: linear-gradient(135deg, #0b0f1a 0%, #0e1224 50%, #0b0f1a 100%);
-  --bg-secondary: linear-gradient(
-    135deg,
-    #0e1224 0%,
-    #151a33 50%,
-    #0e1224 100%
+  /* Backgrounds - Radial gradient (effet cendré sur un côté) */
+  /* circle, centre en haut-droite (75% 25%), stops 0-50-100 */
+  --bg-primary: radial-gradient(
+    circle at 75% 25%,
+    #2a2a2e 0%,
+    #1a1a1e 50%,
+    #0a0a0c 100%
   );
-  --bg-tertiary: linear-gradient(135deg, #151a33 0%, #1a2340 50%, #151a33 100%);
+  --bg-secondary: radial-gradient(
+    circle at 75% 25%,
+    #222228 0%,
+    #16161a 50%,
+    #0e0e10 100%
+  );
+  --bg-tertiary: radial-gradient(
+    circle at 75% 25%,
+    #28282e 0%,
+    #1c1c20 50%,
+    #121214 100%
+  );
 
   /* Textes - Solid colors */
   --text-primary: #e6e8ef;
@@ -81,11 +92,7 @@
   --font-mono: var(--font-jetbrains-mono);
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+
 
 /* Reset uniquement pour les éléments par défaut, pas tous */
 body,
@@ -124,7 +131,6 @@ html {
 
 body {
   background: var(--bg-primary);
-  background-color: var(--var-bg-body);
   color: var(--text-primary);
   font-family:
     var(--font-inter),

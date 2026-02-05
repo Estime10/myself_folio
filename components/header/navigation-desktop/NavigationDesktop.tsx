@@ -12,21 +12,19 @@ export async function NavigationDesktop() {
       {/* Logo à gauche */}
       <div className="flex items-center">
         <p
-          className="font-bold text-xl lg:text-2xl"
-          style={{ textTransform: "uppercase" }}
+          className="font-bold text-base uppercase"
         >
           Estime Vangu
         </p>
       </div>
 
       {/* Navigation au centre */}
-      <div className="flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+      <div className="flex items-center gap-24 uppercase absolute left-1/2 -translate-x-1/2">
         {navigationItems.map((item) => (
           <Link
             key={item.href}
             href={item.href}
-            className="font-bold text-xl lg:text-2xl transition-colors lg:hover:text-accent-primary"
-            style={{ textTransform: "uppercase" }}
+            className="font-bold text-base transition-colors lg:hover:text-accent-primary "
           >
             {t(item.translationKey)}
           </Link>
