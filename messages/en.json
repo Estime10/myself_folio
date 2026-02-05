@@ -7,5 +7,10 @@
   },
   "navigation": {
     "menu": "Menu"
+  },
+  "hero": {
+    "title": "Fullstack developer",
+    "subtitle": "Vision, DNA & Design System",
+    "cta": "Contact me"
   }
 }
