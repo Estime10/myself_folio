@@ -9,8 +9,10 @@
     "menu": "Menu"
   },
   "hero": {
-    "title": "Fullstack developer",
-    "subtitle": "Vision, DNA & Design System",
+    "titleLine1": "Clean UI.",
+    "titleLine2": "Solid code.",
+    "titleLine3": "Real products.",
+    "bio": "Frontend developer building high-performance web apps with Next.js and mobile apps with React Native.",
     "cta": "Contact me"
   }
 }

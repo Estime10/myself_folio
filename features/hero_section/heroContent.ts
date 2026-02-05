@@ -1,17 +1,26 @@
+export type HeroCta = {
+  translationKey: string;
+  href: string;
+};
+
 export type HeroContent = {
   translationKeys: {
-    title: string;
-    subtitle: string;
-    cta: string;
+    titleLine1: string;
+    titleLine2: string;
+    titleLine3: string;
+    bio: string;
   };
-  ctaHref: string;
+  ctas: HeroCta[];
 };
 
 export const heroContent: HeroContent = {
   translationKeys: {
-    title: "hero.title",
-    subtitle: "hero.subtitle",
-    cta: "hero.cta",
+    titleLine1: "hero.titleLine1",
+    titleLine2: "hero.titleLine2",
+    titleLine3: "hero.titleLine3",
+    bio: "hero.bio",
   },
-  ctaHref: "/contact",
+  ctas: [
+    { translationKey: "hero.cta", href: "/contact" },
+  ],
 };

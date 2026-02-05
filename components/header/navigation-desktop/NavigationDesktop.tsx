@@ -1,4 +1,5 @@
 import { getTranslations, getLocale } from "next-intl/server";
+import { SITE_NAME } from "@/lib/config/site";
 import { navigationItems } from "../navigation-items/navigationItems";
 import { LanguageToggle } from "@/components/ui/language-toggle/ui/LanguageToggle";
 import Link from "next/link";
@@ -11,20 +12,16 @@ export async function NavigationDesktop() {
     <nav className="hidden lg:flex items-center justify-between py-4">
       {/* Logo à gauche */}
       <div className="flex items-center">
-        <p
-          className="font-bold text-base uppercase"
-        >
-          Estime Vangu
-        </p>
+        <p className="font-bold text-base uppercase">{SITE_NAME}</p>
       </div>
 
       {/* Navigation au centre */}
-      <div className="flex items-center gap-24 uppercase absolute left-1/2 -translate-x-1/2">
+      <div className="flex items-center gap-12 lg:gap-16 xl:gap-24 uppercase absolute left-1/2 -translate-x-1/2 whitespace-nowrap">
         {navigationItems.map((item) => (
           <Link
             key={item.href}
             href={item.href}
-            className="font-bold text-base transition-colors lg:hover:text-accent-primary "
+            className="shrink-0 font-bold text-base transition-colors lg:hover:text-accent-primary"
           >
             {t(item.translationKey)}
           </Link>
