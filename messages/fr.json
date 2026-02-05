@@ -14,5 +14,12 @@
     "titleLine3": "Real products.",
     "bio": "Développeur frontend qui conçoit des applications web performantes avec Next.js et des applications mobiles avec React Native.",
     "cta": "Me contacter"
+  },
+  "contact": {
+    "title": "Contact",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram",
+    "close": "Fermer"
   }
 }

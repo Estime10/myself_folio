@@ -1,6 +1,8 @@
 export type HeroCta = {
   translationKey: string;
-  href: string;
+  href?: string;
+  /** Si true, le CTA ouvre la modale Contact au lieu de naviguer. */
+  openContactModal?: boolean;
 };
 
 export type HeroContent = {
@@ -21,6 +23,6 @@ export const heroContent: HeroContent = {
     bio: "hero.bio",
   },
   ctas: [
-    { translationKey: "hero.cta", href: "/contact" },
+    { translationKey: "hero.cta", openContactModal: true },
   ],
 };

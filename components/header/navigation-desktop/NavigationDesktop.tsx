@@ -1,6 +1,6 @@
 import { getTranslations, getLocale } from "next-intl/server";
 import { SITE_NAME } from "@/lib/config/site";
-import { navigationItems } from "../navigation-items/navigationItems";
+import { navigationItems } from "@/features/navigation";
 import { LanguageToggle } from "@/components/ui/language-toggle/ui/LanguageToggle";
 import Link from "next/link";
 

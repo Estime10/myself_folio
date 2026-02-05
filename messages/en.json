@@ -14,5 +14,12 @@
     "titleLine3": "Real products.",
     "bio": "Frontend developer building high-performance web apps with Next.js and mobile apps with React Native.",
     "cta": "Contact me"
+  },
+  "contact": {
+    "title": "Contact",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram",
+    "close": "Close"
   }
 }

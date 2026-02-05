@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRef, useEffect, useLayoutEffect } from "react";
-import { navigationItems } from "../../navigation-items/navigationItems";
+import { navigationItems } from "@/features/navigation";
 import { useNavigation } from "../../hooks/useNavigation";
 
 export function MobileMenuWrapper() {

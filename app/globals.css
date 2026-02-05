@@ -117,7 +117,10 @@ ol {
   list-style: none;
 }
 
-button,
+button {
+  margin: 0;
+}
+
 input,
 select,
 textarea {
