@@ -21,7 +21,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     if (!overlay || !panel) return;
 
     gsap.set(overlay, { opacity: 0, pointerEvents: "none" });
-    gsap.set(panel, { scale: 0.95, opacity: 0 });
+    gsap.set(panel, { scale: 0.95, opacity: 0, pointerEvents: "none" });
   }, []);
 
   useEffect(() => {
@@ -44,6 +44,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       }, 0).to(panel, {
         scale: 1,
         opacity: 1,
+        pointerEvents: "auto",
         duration,
         ease,
       }, 0);
@@ -56,6 +57,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       }, 0).to(panel, {
         scale: 0.95,
         opacity: 0,
+        pointerEvents: "none",
         duration,
         ease,
       }, 0).eventCallback("onComplete", () => {
@@ -80,7 +82,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       />
       <div
         ref={panelRef}
-        className="fixed left-1/2 top-1/2 z-50 w-full max-w-[min(360px,90vw)] -translate-x-1/2 -translate-y-1/2 glass-strong rounded-2xl p-6 shadow-xl opacity-0"
+        className="fixed left-1/2 top-1/2 z-50 w-full max-w-[min(360px,90vw)] -translate-x-1/2 -translate-y-1/2 glass-strong rounded-2xl p-6 shadow-xl opacity-0 pointer-events-none"
         role="dialog"
         aria-modal="true"
         aria-label={t("title")}
