@@ -15,7 +15,7 @@ export function ContactModalTrigger({ label }: ContactModalTriggerProps) {
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className="inline-block rounded-lg bg-accent-primary px-6 py-3 text-base font-medium text-white transition-opacity hover:opacity-90 lg:cursor-pointer"
+        className="inline-block rounded-lg bg-accent-primary p-2 text-base font-medium text-white transition-opacity hover:opacity-90 lg:cursor-pointer"
       >
         {label}
       </button>
