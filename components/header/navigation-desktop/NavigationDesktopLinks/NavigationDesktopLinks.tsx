@@ -1,7 +1,7 @@
 "use client";
 
+import { AppLink } from "@/components/page-transition";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navigationItems } from "@/features/navigation";
 
@@ -22,13 +22,13 @@ export function NavigationDesktopLinks() {
             {t(item.translationKey)}
           </span>
         ) : (
-          <Link
+          <AppLink
             key={item.href}
             href={item.href}
             className="shrink-0 font-bold text-base transition-colors lg:hover:text-accent-primary"
           >
             {t(item.translationKey)}
-          </Link>
+          </AppLink>
         );
       })}
     </>
