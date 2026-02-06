@@ -1,6 +1,6 @@
-import { Container } from "@/components/ui/container/Container";
-import { ProjectCard } from "@/components/projects/ProjectCard/ProjectCard";
-import { projects } from "./projectsConfig";
+import { Container } from "@/components/container/Container";
+import { ProjectCard } from "@/features/projects/ui/ProjectCard/ProjectCard";
+import { projects } from "./data/projectsConfig";
 
 export function ProjectsSection() {
   return (
