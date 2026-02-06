@@ -3,9 +3,10 @@ export type ProjectId = "jikowood" | "purpose-sport" | "maxwelljones";
 export type Project = {
   id: ProjectId;
   name: string;
-  summary: string;
-  role: string;
-  stack: string[];
+  /** Clé de traduction pour le résumé du projet. */
+  summaryKey: string;
+  /** Clés de traduction pour les tags (stack, rôles, etc.). */
+  tagKeys: string[];
   /** URL publique du projet (optionnelle pour l'instant). */
   url?: string;
 };
@@ -14,25 +15,22 @@ export const projects: Project[] = [
   {
     id: "jikowood",
     name: "Jikowood",
-    summary:
-      "E-commerce sur mesure pour un atelier de menuiserie : catalogue produit scénarisé, configuration avancée et tunnel de commande fluide.",
-    role: "Design système, front-end, intégration e-commerce",
-    stack: ["Next.js", "TypeScript", "Stripe", "Headless CMS"],
+    summaryKey: "jikowood.summary",
+    tagKeys: ["next", "ts", "mongo", "fullstack","responsive"],
+    url: "https://jikowood.be",
   },
   {
     id: "purpose-sport",
     name: "Purpose Sport",
-    summary:
-      "Plateforme de coaching sportif axée performance : acquisition, onboarding des athlètes et espace membre pour le suivi des programmes.",
-    role: "Architecture front, UX produit, intégration marketing",
-    stack: ["Next.js", "TypeScript", "Supabase", "Motion"],
+    summaryKey: "purposeSport.summary",
+    tagKeys: ["next", "ts", "motion","responsive"],
+    url: "https://www.purpose-sport.com/",
   },
   {
     id: "maxwelljones",
     name: "Maxwell Jones",
-    summary:
-      "Portfolio immersif pour un photographe freelance, pensé comme une scénographie de séries photo plus qu’un simple listing de projets.",
-    role: "Direction UX/UI, animations, performance",
-    stack: ["Next.js", "TypeScript", "GSAP", "Responsive"],
+    summaryKey: "maxwellJones.summary",
+    tagKeys: ["next", "ts", "gsap", "responsive"],
+    url: "https://maxwelljones.com",
   },
 ];

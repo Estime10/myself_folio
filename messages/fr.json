@@ -21,5 +21,32 @@
     "linkedin": "LinkedIn",
     "instagram": "Instagram",
     "close": "Fermer"
+  },
+  "projects": {
+    "sectionEyebrow": "Projets",
+    "sectionTitle": "Sélection de produits livrés",
+    "sectionIntro": "Quelques projets représentatifs de ma façon de travailler : focus produit, design system robuste et exécution front soignée.",
+    "jikowood": {
+      "summary": "Site vitrine full-stack développé avec Next.js, TypeScript et MongoDB pour présenter des projets de menuiserie sur mesure et collecter des témoignages clients. Le site a contribué à une augmentation de 17 % de l'activité sur un an.",
+      "role": "Conception produit et développement full-stack"
+    },
+    "purposeSport": {
+      "summary": "Site vitrine full-stack développé avec Next.js et TypeScript pour une agence de recrutement de basket, avec galerie d’images et de vidéos dynamique et interactive. La plateforme a contribué à une croissance de 3 % de l’activité sur un an.",
+      "role": "Architecture produit, UX et intégration front-end"
+    },
+    "maxwellJones": {
+      "summary": "Site corporate full-stack développé avec Next.js et TypeScript pour une holding, avec support multilingue (FR/EN), sections de philosophie interactives et panneau dynamique du réseau stratégique. La plateforme propose une expérience single-page moderne pensée pour présenter l’écosystème « Learn, Earn, Return » de l’entreprise.",
+      "role": "Stratégie produit, direction UX/UI et livraison front-end"
+    }
+  },
+  "tech": {
+    "next": "Next.js",
+    "ts": "TypeScript",
+    "mongo": "MongoDB",
+    "fullstack": "Full-stack",
+    "supabase": "Supabase",
+    "motion": "Motion",
+    "gsap": "GSAP",
+    "responsive": "Responsive"
   }
 }
