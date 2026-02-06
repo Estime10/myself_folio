@@ -62,6 +62,19 @@ export function PageTransition({ children }: PageTransitionProps) {
     }
   }, [pathname, overlayPhase]);
 
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    const body = document.body;
+    if (overlayPhase !== "hidden") {
+      body.classList.add("page-transition-active");
+    } else {
+      body.classList.remove("page-transition-active");
+    }
+    return () => {
+      body.classList.remove("page-transition-active");
+    };
+  }, [overlayPhase]);
+
   return (
     <PageTransitionContext.Provider value={{ runPageExitTransition }}>
       <div>{children}</div>

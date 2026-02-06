@@ -4,8 +4,8 @@ import gsap from "gsap";
 import { useRef, useEffect, useLayoutEffect } from "react";
 
 const STRIP_COUNT = 8;
-const STRIP_STAGGER = 0.08;
-const STRIP_DURATION = 0.7;
+const STRIP_STAGGER = 0.12;
+const STRIP_DURATION = 1.0;
 const EASE = "power3.inOut";
 
 type SliceOverlayProps = {

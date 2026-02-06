@@ -4,7 +4,7 @@ import { NavigationMobile } from "../navigation-mobile/NavigationMobile/Navigati
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 glass">
+    <header className="site-header sticky top-0 z-50 glass">
       <Container>
         <NavigationDesktop />
         <NavigationMobile />
