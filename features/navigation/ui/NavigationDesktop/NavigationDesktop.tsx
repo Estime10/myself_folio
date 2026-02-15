@@ -10,7 +10,7 @@ export async function NavigationDesktop() {
   return (
     <nav className="hidden lg:flex items-center justify-between py-4">
       <div className="flex items-center">
-        <p className="font-bold text-base uppercase">{SITE_NAME}</p>
+        <p className="font-bold text-lg uppercase lg:text-xl">{SITE_NAME}</p>
       </div>
       <div className="flex items-center gap-12 lg:gap-16 xl:gap-24 uppercase absolute left-1/2 -translate-x-1/2 whitespace-nowrap">
         <NavigationDesktopLinks />

@@ -37,7 +37,7 @@ export function MobileMenuWrapper() {
             return isActive ? (
               <span
                 key={item.href}
-                className="block py-3 px-2 text-lg font-medium rounded-lg text-accent-primary uppercase"
+                className="block py-3 px-2 text-xl font-medium rounded-lg text-accent-primary uppercase"
                 aria-current="page"
               >
                 {t(key)}
@@ -46,7 +46,7 @@ export function MobileMenuWrapper() {
               <AppLink
                 key={item.href}
                 href={item.href}
-                className="block py-3 px-2 text-lg font-medium rounded-lg transition-colors lg:hover:bg-white/10 lg:hover:text-accent-primary uppercase "
+                className="block py-3 px-2 text-xl font-medium rounded-lg transition-colors lg:hover:bg-white/10 lg:hover:text-accent-primary uppercase"
                 onNavigate={closeMobileMenu}
               >
                 {t(key)}

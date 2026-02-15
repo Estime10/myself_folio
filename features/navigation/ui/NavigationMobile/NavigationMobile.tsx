@@ -8,7 +8,7 @@ export function NavigationMobile() {
     <NavigationProvider>
       <nav className="lg:hidden" aria-label="Navigation mobile">
         <div className="flex items-center justify-between py-4 w-full">
-          <p className="font-bold text-xl uppercase">{SITE_NAME}</p>
+          <p className="font-bold text-2xl uppercase">{SITE_NAME}</p>
           <MobileMenuButton />
         </div>
         <MobileMenuWrapper />

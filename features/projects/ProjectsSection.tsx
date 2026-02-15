@@ -14,16 +14,16 @@ export async function ProjectsSection() {
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-text-secondary/80">
               {t("sectionEyebrow")}
             </p>
-            <h1 className="mt-2 text-2xl font-semibold text-text-primary md:text-3xl">
+            <h1 className="mt-2 text-2xl font-semibold text-text-primary">
               {t("sectionTitle")}
             </h1>
           </div>
-          <p className="max-w-md text-sm text-text-muted">
+          <p className="max-w-md text-sm text-white md:text-[15px] lg:text-[15.5px]">
             {t("sectionIntro")}
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-6 xl:grid-cols-3">
           {projects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}

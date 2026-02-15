@@ -16,7 +16,7 @@ export function NavigationDesktopLinks() {
         return isActive ? (
           <span
             key={item.href}
-            className="shrink-0 font-bold text-base text-accent-primary"
+            className="shrink-0 font-bold text-lg text-accent-primary"
             aria-current="page"
           >
             {t(item.translationKey)}
@@ -25,7 +25,7 @@ export function NavigationDesktopLinks() {
           <AppLink
             key={item.href}
             href={item.href}
-            className="shrink-0 font-bold text-base transition-colors lg:hover:text-accent-primary"
+            className="shrink-0 font-bold text-lg transition-colors lg:hover:text-accent-primary"
           >
             {t(item.translationKey)}
           </AppLink>
