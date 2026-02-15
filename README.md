@@ -147,26 +147,3 @@ La mono donne le ton : *engineering first*
 * Aucune importation directe dans les composants
 
 ---
-
-## 🧭 Prochaines étapes
-
-1. Définition du **layout Dashboard** (grille & panels)
-2. Structure des sections :
-
-   * Home / Control Room
-   * Projects (fiches techniques)
-   * About (mentalité & méthode)
-3. Définition des **animations clés**
-4. Setup Next.js (architecture stricte)
-
----
-
-## Règle fondamentale
-
-Ce portfolio doit être :
-
-> **la preuve concrète de ton niveau**
-
-Chaque choix doit pouvoir être défendu techniquement et visuellement.
-
-Aucun compromis sur la qualité.
