@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/container/Container";
+import { SectionHeader } from "@/components/ui/SectionHeader/SectionHeader";
 import { aboutItemsConfig } from "./data/aboutConfig";
 import { AboutOverlayProvider } from "./context/AboutOverlayContext";
 import { AboutImagesBlock } from "./ui/AboutDesktop/AboutImagesBlock/AboutImagesBlock";
@@ -14,19 +15,12 @@ export async function AboutSection() {
       <div className="min-h-0 min-[1220px]:flex-1" />
       {/* Titre : toujours visible (mobile + desktop), dégagé du header en mobile */}
       <Container className="mb-4 pt-10 min-[1220px]:pt-0 xl:mb-8">
-        <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-text-secondary/80">
-              {t("sectionEyebrow")}
-            </p>
-            <h1 className="mt-2 text-2xl font-semibold text-text-primary">
-              {t("sectionTitle")}
-            </h1>
-          </div>
-          <p className="max-w-md text-sm text-white md:text-[15px] lg:text-[15.5px]">
-            {t("sectionIntro")}
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow={t("sectionEyebrow")}
+          title={t("sectionTitle")}
+          intro={t("sectionIntro")}
+          headerClassName=""
+        />
       </Container>
       {/* Un seul état overlay partagé (desktop + mobile) */}
       <AboutOverlayProvider>

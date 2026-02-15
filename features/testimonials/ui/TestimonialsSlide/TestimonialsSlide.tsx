@@ -35,7 +35,7 @@ export function TestimonialsSlide({
 
       <Container className="absolute left-0 right-0 top-28 z-10">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-text-secondary/80">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-text-secondary/80">
             {projectNameLabel}
           </p>
           <h2 className="mt-2 text-3xl font-semibold text-text-primary md:text-4xl">

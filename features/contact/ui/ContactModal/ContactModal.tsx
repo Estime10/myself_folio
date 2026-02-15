@@ -3,10 +3,7 @@
 import gsap from "gsap";
 import { useTranslations } from "next-intl";
 import { useRef, useEffect, useLayoutEffect } from "react";
-import {
-  ContactLinks,
-  getContactLinks,
-} from "@/features/contact/ui/ContactLinks/ContactLinks";
+import { ContactLinks, getContactLinks } from "../ContactLinks/ContactLinks";
 
 type ContactModalProps = {
   isOpen: boolean;

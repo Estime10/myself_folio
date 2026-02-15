@@ -1,4 +1,4 @@
-import { ContactModalTrigger } from "@/components/contact-modal";
+import { ContactModalTrigger } from "@/features/contact";
 import type { HeroCta } from "../hero-content/heroContent";
 
 type HeroCtasProps = {

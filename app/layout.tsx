@@ -2,6 +2,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import type { Metadata } from "next";
 import { inter, jetbrainsMono } from "@/lib/config/fonts";
+import { getUserLocale } from "@/lib/locale";
 import "./globals.css";
 import { PageTransition } from "@/components/page-transition";
 import { Header } from "@/features/navigation/Header";
@@ -18,10 +19,10 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: Props) {
-  const messages = await getMessages();
+  const [messages, locale] = await Promise.all([getMessages(), getUserLocale()]);
 
   return (
-    <html lang="en">
+    <html lang={locale}>
       <head>
         <meta
           name="viewport"

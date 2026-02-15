@@ -13,6 +13,7 @@ export async function Hero() {
       <div className="absolute inset-0 flex items-center">
         <Container as="div" className="w-full text-text-primary">
           <HeroText
+            eyebrow={t(translationKeys.eyebrow)}
             titleLine1={t(translationKeys.titleLine1)}
             titleLine2={t(translationKeys.titleLine2)}
             titleLine3={t(translationKeys.titleLine3)}

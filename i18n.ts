@@ -1,12 +1,14 @@
 import { getRequestConfig } from "next-intl/server";
 import { getUserLocale } from "./lib/locale";
+import { validateMessages } from "./lib/messagesSchema";
 
 export default getRequestConfig(async () => {
-  // Obtenir la locale depuis le cookie côté serveur
   const locale = await getUserLocale();
+  const raw = (await import(`./messages/${locale}.json`)).default;
+  const messages = validateMessages(raw);
 
   return {
     locale,
-    messages: (await import(`./messages/${locale}.json`)).default,
+    messages,
   };
 });

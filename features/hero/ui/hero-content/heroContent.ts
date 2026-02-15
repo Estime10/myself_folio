@@ -7,6 +7,7 @@ export type HeroCta = {
 
 export type HeroContent = {
   translationKeys: {
+    eyebrow: string;
     titleLine1: string;
     titleLine2: string;
     titleLine3: string;
@@ -17,6 +18,7 @@ export type HeroContent = {
 
 export const heroContent: HeroContent = {
   translationKeys: {
+    eyebrow: "hero.eyebrow",
     titleLine1: "hero.titleLine1",
     titleLine2: "hero.titleLine2",
     titleLine3: "hero.titleLine3",

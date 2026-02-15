@@ -1,2 +1,2 @@
-export { ContactModal } from "./ContactModal/ContactModal";
-export { ContactModalTrigger } from "./ContactModalTrigger/ContactModalTrigger";
+/** Réexport depuis la feature contact (source unique). */
+export { ContactModal, ContactModalTrigger } from "@/features/contact";

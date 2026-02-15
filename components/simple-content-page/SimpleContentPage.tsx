@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
-const TITLE_CLASS = "text-2xl font-bold uppercase text-text-primary";
+const TITLE_CLASS = "text-2xl font-semibold uppercase text-text-primary";
 const WRAPPER_CLASS = "flex flex-1 flex-col items-center justify-center p-6";
 
 type SimpleContentPageProps = {
