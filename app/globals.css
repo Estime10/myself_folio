@@ -222,3 +222,13 @@ body {
   padding-left: var(--safe-area-inset-left);
   padding-right: var(--safe-area-inset-right);
 }
+
+/* Transition d'apparition du header après les animations de page */
+.site-header {
+  opacity: 1;
+  transition: opacity 0.35s ease-out;
+}
+
+body.page-transition-active .site-header {
+  opacity: 0;
+}

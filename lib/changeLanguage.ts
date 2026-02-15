@@ -1,7 +1,8 @@
+"use server";
+
 import { setUserLocale } from "@/lib/locale";
 
+// Server action: met à jour la locale utilisateur via cookie.
 export async function changeLanguage(locale: string): Promise<void> {
   await setUserLocale(locale);
-  // Recharger la page pour appliquer les nouvelles traductions
-  window.location.reload();
 }

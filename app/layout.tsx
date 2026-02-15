@@ -3,6 +3,8 @@ import { getMessages } from "next-intl/server";
 import type { Metadata } from "next";
 import { inter, jetbrainsMono } from "@/lib/config/fonts";
 import "./globals.css";
+import { PageTransition } from "@/components/page-transition";
+import { Header } from "@/features/navigation/Header";
 
 type Props = {
   children: React.ReactNode;
@@ -28,7 +30,14 @@ export default async function RootLayout({ children }: Props) {
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <PageTransition>
+            <div className="flex min-h-screen flex-col overflow-hidden">
+              <Header />
+              <main className="flex min-h-0 flex-1">
+                {children}
+              </main>
+            </div>
+          </PageTransition>
         </NextIntlClientProvider>
       </body>
     </html>
