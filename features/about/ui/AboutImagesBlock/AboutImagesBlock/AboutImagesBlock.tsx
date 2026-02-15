@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import type { AboutItemConfig } from "../../data/aboutConfig";
-import { AboutImageCard } from "./AboutImageCard/AboutImageCard";
-import { AboutOverlay } from "./AboutOverlay/AboutOverlay";
+import type { AboutItemConfig } from "../../../data/aboutConfig";
+import { AboutImageCard } from "../AboutImageCard/AboutImageCard";
+import { AboutOverlay } from "../AboutOverlay/AboutOverlay";
 
 type AboutImagesBlockProps = {
   items: AboutItemConfig[];
