@@ -13,6 +13,17 @@ type AboutImagesBlockProps = {
 export function AboutImagesBlock({ items }: AboutImagesBlockProps) {
   const t = useTranslations();
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+  const [selectedTitleKey, setSelectedTitleKey] = useState<string | null>(null);
+
+  const openOverlay = (titleKey: string) => {
+    setSelectedTitleKey(titleKey);
+    setIsOverlayOpen(true);
+  };
+
+  const closeOverlay = () => {
+    setIsOverlayOpen(false);
+    setSelectedTitleKey(null);
+  };
 
   return (
     <>
@@ -22,12 +33,14 @@ export function AboutImagesBlock({ items }: AboutImagesBlockProps) {
             key={id}
             image={image}
             title={t(titleKey)}
-            onOpen={() => setIsOverlayOpen(true)}
+            onOpen={() => openOverlay(titleKey)}
           />
         ))}
       </div>
 
-      {isOverlayOpen && <AboutOverlay onClose={() => setIsOverlayOpen(false)} />}
+      {isOverlayOpen && selectedTitleKey && (
+        <AboutOverlay titleKey={selectedTitleKey} onClose={closeOverlay} />
+      )}
     </>
   );
 }
