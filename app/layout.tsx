@@ -5,6 +5,8 @@ import { inter, jetbrainsMono } from "@/lib/config/fonts";
 import "./globals.css";
 import { PageTransition } from "@/components/page-transition";
 import { Header } from "@/features/navigation/Header";
+import { HeaderScrollEffect } from "@/features/navigation/HeaderScrollEffect";
+import { HeroBackground } from "@/features/hero/ui/hero-background/HeroBackground";
 
 type Props = {
   children: React.ReactNode;
@@ -31,9 +33,13 @@ export default async function RootLayout({ children }: Props) {
       >
         <NextIntlClientProvider messages={messages}>
           <PageTransition>
-            <div className="layout-root flex min-h-screen flex-col">
-              <Header />
-              <main className="flex min-h-0 flex-1">{children}</main>
+            <div className="layout-root relative flex min-h-screen flex-col">
+              <HeroBackground />
+              <div className="relative z-10 flex min-h-screen flex-col">
+                <HeaderScrollEffect />
+                <Header />
+                <main className="flex min-h-0 flex-1 flex-col">{children}</main>
+              </div>
             </div>
           </PageTransition>
         </NextIntlClientProvider>

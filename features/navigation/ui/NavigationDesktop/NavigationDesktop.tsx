@@ -8,11 +8,11 @@ export async function NavigationDesktop() {
   const locale = await getLocale();
 
   return (
-    <nav className="hidden lg:flex items-center justify-between py-4">
+    <nav className="relative hidden lg:flex items-center justify-between py-4">
       <div className="flex items-center">
         <p className="font-bold text-lg uppercase lg:text-xl">{SITE_NAME}</p>
       </div>
-      <div className="absolute left-1/2 flex -translate-x-1/2 items-center gap-12 whitespace-nowrap uppercase lg:gap-16 xl:gap-24">
+      <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center gap-12 whitespace-nowrap uppercase lg:gap-16 xl:gap-24">
         <NavigationDesktopLinks />
       </div>
       <div className="flex items-center">

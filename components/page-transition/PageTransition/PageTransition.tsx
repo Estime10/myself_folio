@@ -27,18 +27,17 @@ export function PageTransition({ children }: PageTransitionProps) {
   const previousPathnameRef = useRef<string | null>(null);
   const reducedMotion = usePrefersReducedMotion();
 
-  const runPageExitTransition = useCallback<PageTransitionContextValue["runPageExitTransition"]>(
-    (callback) => {
-      setOverlayPhase("covering");
+  const runPageExitTransition = useCallback<
+    PageTransitionContextValue["runPageExitTransition"]
+  >((callback) => {
+    setOverlayPhase("covering");
+    requestAnimationFrame(() => {
+      callback();
       requestAnimationFrame(() => {
-        callback();
-        requestAnimationFrame(() => {
-          setOverlayPhase("revealing");
-        });
+        setOverlayPhase("revealing");
       });
-    },
-    []
-  );
+    });
+  }, []);
 
   const handleRevealComplete = useCallback(() => {
     setOverlayPhase("hidden");
@@ -77,7 +76,7 @@ export function PageTransition({ children }: PageTransitionProps) {
 
   return (
     <PageTransitionContext.Provider value={{ runPageExitTransition }}>
-      <div>{children}</div>
+      {children}
       <SliceOverlay
         visible={overlayPhase !== "hidden"}
         runReveal={overlayPhase === "revealing"}
