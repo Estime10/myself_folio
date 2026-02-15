@@ -3,6 +3,7 @@
 import { useState, useCallback, useRef, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import gsap from "gsap";
+import { AboutOverlayCard } from "./AboutOverlayCard";
 
 type AboutOverlayProps = {
   titleKey: string;
@@ -16,7 +17,7 @@ const LINE_ANIMATION_DELAY = 0.2;
 const LINE_EASE = "power2.out";
 const BAR_HEIGHT = 40;
 const BAR_ANIMATION_DURATION = 0.5;
-const SUBTITLE_ANIMATION_DURATION = 0.4;
+const CARD_ANIMATION_DURATION = 0.4;
 
 export function AboutOverlay({ titleKey, sectionKeys, onClose }: AboutOverlayProps) {
   const t = useTranslations();
@@ -26,9 +27,9 @@ export function AboutOverlay({ titleKey, sectionKeys, onClose }: AboutOverlayPro
   const barLeftRef = useRef<HTMLDivElement>(null);
   const barCenterRef = useRef<HTMLDivElement>(null);
   const barRightRef = useRef<HTMLDivElement>(null);
-  const subtitleLeftRef = useRef<HTMLParagraphElement>(null);
-  const subtitleCenterRef = useRef<HTMLParagraphElement>(null);
-  const subtitleRightRef = useRef<HTMLParagraphElement>(null);
+  const cardLeftRef = useRef<HTMLDivElement>(null);
+  const cardCenterRef = useRef<HTMLDivElement>(null);
+  const cardRightRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const vertical = verticalLineRef.current;
@@ -36,18 +37,18 @@ export function AboutOverlay({ titleKey, sectionKeys, onClose }: AboutOverlayPro
     const barLeft = barLeftRef.current;
     const barCenter = barCenterRef.current;
     const barRight = barRightRef.current;
-    const subtitleLeft = subtitleLeftRef.current;
-    const subtitleCenter = subtitleCenterRef.current;
-    const subtitleRight = subtitleRightRef.current;
+    const cardLeft = cardLeftRef.current;
+    const cardCenter = cardCenterRef.current;
+    const cardRight = cardRightRef.current;
     if (
       !vertical ||
       !horizontal ||
       !barLeft ||
       !barCenter ||
       !barRight ||
-      !subtitleLeft ||
-      !subtitleCenter ||
-      !subtitleRight ||
+      !cardLeft ||
+      !cardCenter ||
+      !cardRight ||
       isClosing
     )
       return;
@@ -55,7 +56,7 @@ export function AboutOverlay({ titleKey, sectionKeys, onClose }: AboutOverlayPro
     gsap.set(vertical, { scaleY: 0 });
     gsap.set(horizontal, { scaleX: 0 });
     gsap.set([barLeft, barCenter, barRight], { scaleY: 0 });
-    gsap.set([subtitleLeft, subtitleCenter, subtitleRight], { opacity: 0, y: 8 });
+    gsap.set([cardLeft, cardCenter, cardRight], { opacity: 0, y: 8 });
 
     const tl = gsap.timeline({ overwrite: true });
     tl.to(vertical, {
@@ -75,8 +76,8 @@ export function AboutOverlay({ titleKey, sectionKeys, onClose }: AboutOverlayPro
         ease: LINE_EASE,
       })
       .to(
-        subtitleLeft,
-        { opacity: 1, y: 0, duration: SUBTITLE_ANIMATION_DURATION, ease: LINE_EASE },
+        cardLeft,
+        { opacity: 1, y: 0, duration: CARD_ANIMATION_DURATION, ease: LINE_EASE },
         "-=0.1"
       )
       .to(barCenter, {
@@ -85,8 +86,8 @@ export function AboutOverlay({ titleKey, sectionKeys, onClose }: AboutOverlayPro
         ease: LINE_EASE,
       })
       .to(
-        subtitleCenter,
-        { opacity: 1, y: 0, duration: SUBTITLE_ANIMATION_DURATION, ease: LINE_EASE },
+        cardCenter,
+        { opacity: 1, y: 0, duration: CARD_ANIMATION_DURATION, ease: LINE_EASE },
         "-=0.1"
       )
       .to(barRight, {
@@ -95,8 +96,8 @@ export function AboutOverlay({ titleKey, sectionKeys, onClose }: AboutOverlayPro
         ease: LINE_EASE,
       })
       .to(
-        subtitleRight,
-        { opacity: 1, y: 0, duration: SUBTITLE_ANIMATION_DURATION, ease: LINE_EASE },
+        cardRight,
+        { opacity: 1, y: 0, duration: CARD_ANIMATION_DURATION, ease: LINE_EASE },
         "-=0.1"
       );
   }, [isClosing, sectionKeys]);
@@ -152,24 +153,33 @@ export function AboutOverlay({ titleKey, sectionKeys, onClose }: AboutOverlayPro
         style={{ height: BAR_HEIGHT }}
         aria-hidden
       />
-      <p
-        ref={subtitleLeftRef}
-        className="absolute left-[235px] top-[calc(3.5rem+28vh+32px)] z-10 w-[min(200px,40vw)] -translate-x-1/2 text-center text-sm font-medium text-white/90"
+      <div
+        ref={cardLeftRef}
+        className="absolute left-[235px] top-[calc(3.5rem+28vh+32px)] z-10 -translate-x-1/2"
       >
-        {t(`${sectionKeys[0]}.title`)}
-      </p>
-      <p
-        ref={subtitleCenterRef}
-        className="absolute left-1/2 top-[calc(3.5rem+28vh+32px)] z-10 w-[min(200px,40vw)] -translate-x-1/2 text-center text-sm font-medium text-white/90"
+        <AboutOverlayCard
+          title={t(`${sectionKeys[0]}.title`)}
+          description={t(`${sectionKeys[0]}.description`)}
+        />
+      </div>
+      <div
+        ref={cardCenterRef}
+        className="absolute left-1/2 top-[calc(3.5rem+28vh+32px)] z-10 -translate-x-1/2"
       >
-        {t(`${sectionKeys[1]}.title`)}
-      </p>
-      <p
-        ref={subtitleRightRef}
-        className="absolute right-[235px] top-[calc(3.5rem+28vh+32px)] z-10 w-[min(200px,40vw)] translate-x-1/2 text-center text-sm font-medium text-white/90"
+        <AboutOverlayCard
+          title={t(`${sectionKeys[1]}.title`)}
+          description={t(`${sectionKeys[1]}.description`)}
+        />
+      </div>
+      <div
+        ref={cardRightRef}
+        className="absolute right-[235px] top-[calc(3.5rem+28vh+32px)] z-10 translate-x-1/2"
       >
-        {t(`${sectionKeys[2]}.title`)}
-      </p>
+        <AboutOverlayCard
+          title={t(`${sectionKeys[2]}.title`)}
+          description={t(`${sectionKeys[2]}.description`)}
+        />
+      </div>
       <h2 className="absolute left-1/2 top-6 z-10 -translate-x-1/2 text-lg font-semibold uppercase tracking-wide text-white">
         {t(titleKey)}
       </h2>

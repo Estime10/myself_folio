@@ -25,7 +25,7 @@ export const aboutItemsConfig: AboutItemConfig[] = [
   },
   {
     id: "athlete",
-    image: { src: "/image/shoot.webp", alt: "Shoot" },
+    image: { src: "/image/basket.webp", alt: "Shoot" },
     titleKey: "about.athlete.title",
     sectionKeys: [
       "about.athlete.sections.discipline",
