@@ -24,6 +24,16 @@
     "instagram": "Instagram",
     "close": "Close"
   },
+  "testimonials": {
+    "projectNameLabel": "Project name",
+    "quotes": {
+      "jikowood": "Estime perfectly understood our vision and turned it into a clear, professional website. He was able to translate our craft expertise into a modern digital presence that fits our brand. The collaboration was smooth, with great communication and responsiveness. He also advised us on the site structure and user experience. The result is exactly what we wanted.",
+      "purpose_sport": "Estime developed a platform designed for our real needs in the field. He quickly understands functional challenges and proposes simple, effective solutions. His structured approach and ability to turn ideas into concrete features made the project very enjoyable to build. We particularly appreciated his availability and adaptability throughout the development.",
+      "maxweljones": "Very good collaboration with Estime from start to finish. He designed a clean, scalable platform with a well-organized technical foundation. Beyond development, he brings real product thinking and consistent visual direction. His autonomy, reliability and ability to suggest improvements really make a difference in a digital project.",
+      "photo_vibes": "Estime created a site that perfectly showcases my visual world and my work as a photographer. He listened to my expectations while suggesting relevant ideas to improve the presentation of images and navigation. The design is elegant, modern and very easy to use. I felt supported and confident throughout the creation of the site.",
+      "spill_the_crumb": "Estime managed to turn an idea into a functional, enjoyable web app. He combines product vision, technical skills and attention to detail. The interface is intuitive and features were implemented in a progressive, thoughtful way. His ability to structure the project and maintain good communication made the development very efficient."
+    }
+  },
   "projects": {
     "sectionEyebrow": "Projects",
     "sectionTitle": "Selected shipped products",

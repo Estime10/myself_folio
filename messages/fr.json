@@ -24,6 +24,16 @@
     "instagram": "Instagram",
     "close": "Fermer"
   },
+  "testimonials": {
+    "projectNameLabel": "Nom du projet",
+    "quotes": {
+      "jikowood": "Estime a parfaitement compris notre vision et l'a transformée en un site clair et professionnel. Il a su traduire notre savoir-faire artisanal en une présence digitale moderne et cohérente avec notre image. La collaboration a été fluide, avec une excellente communication et beaucoup de réactivité. Il a également su nous conseiller sur la structure du site et l'expérience utilisateur. Le résultat correspond exactement à ce que nous voulions.",
+      "purpose_sport": "Estime a développé une plateforme pensée pour nos besoins réels sur le terrain. Il comprend rapidement les enjeux fonctionnels et propose des solutions simples et efficaces. Son approche structurée et sa capacité à transformer des idées en fonctionnalités concrètes ont rendu le projet très agréable à construire. Nous avons particulièrement apprécié sa disponibilité et sa capacité d'adaptation tout au long du développement.",
+      "maxweljones": "Très bonne collaboration avec Estime du début à la fin du projet. Il a su concevoir une plateforme propre, évolutive et bien organisée techniquement. Au-delà du développement, il apporte une vraie réflexion produit et une direction visuelle cohérente. Son autonomie, sa fiabilité et sa capacité à proposer des améliorations font vraiment la différence dans un projet digital.",
+      "photo_vibes": "Estime a su créer un site qui met parfaitement en valeur mon univers visuel et mon travail de photographe. Il a été à l'écoute de mes attentes tout en apportant des idées pertinentes pour améliorer la présentation des images et la navigation. Le design est élégant, moderne et très facile à utiliser. Je me suis sentie accompagnée et en confiance pendant toute la création du site.",
+      "spill_the_crumb": "Estime a réussi à transformer une idée en une web app fonctionnelle et agréable à utiliser. Il combine vision produit, compétences techniques et attention aux détails. L'interface est intuitive et les fonctionnalités ont été mises en place de manière progressive et réfléchie. Sa capacité à structurer le projet et à maintenir une bonne communication a rendu le développement très efficace."
+    }
+  },
   "projects": {
     "sectionEyebrow": "Projets",
     "sectionTitle": "Sélection de produits livrés",
