@@ -41,6 +41,9 @@
     }
   },
   "about": {
+    "sectionEyebrow": "À propos",
+    "sectionTitle": "Qui je suis",
+    "sectionIntro": "Tech, sport et entrepreneuriat façonnent ma façon de travailler et de livrer des produits.",
     "tech": {
       "title": "Tech mindset",
       "sections": {

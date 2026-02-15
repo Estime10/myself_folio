@@ -41,6 +41,9 @@
     }
   },
   "about": {
+    "sectionEyebrow": "About",
+    "sectionTitle": "Who I am",
+    "sectionIntro": "Tech, sport and entrepreneurship shape how I work and ship products.",
     "tech": {
       "title": "Tech mindset",
       "sections": {

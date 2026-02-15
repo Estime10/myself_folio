@@ -27,7 +27,7 @@ export function AboutImagesBlock({ items }: AboutImagesBlockProps) {
 
   return (
     <>
-      <div className="hidden lg:flex lg:w-full lg:shrink-0 lg:h-[min(100vh,560px)] xl:h-[min(100vh,500px)] 2xl:h-[min(100vh,700px)] lg:gap-3 lg:px-4 lg:pb-0">
+      <div className="hidden min-[1220px]:flex min-[1220px]:w-full min-[1220px]:shrink-0 min-[1220px]:h-[min(100vh,560px)] xl:h-[min(100vh,500px)] 2xl:h-[min(100vh,700px)] min-[1220px]:gap-3 min-[1220px]:px-4 min-[1220px]:pb-0">
         {items.map((item) => (
           <AboutImageCard
             key={item.id}
