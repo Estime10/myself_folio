@@ -36,33 +36,51 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
     if (isOpen) {
       document.body.style.overflow = "hidden";
-      tl.to(overlay, {
-        opacity: 1,
-        pointerEvents: "auto",
-        duration,
-        ease,
-      }, 0).to(panel, {
-        scale: 1,
-        opacity: 1,
-        pointerEvents: "auto",
-        duration,
-        ease,
-      }, 0);
+      tl.to(
+        overlay,
+        {
+          opacity: 1,
+          pointerEvents: "auto",
+          duration,
+          ease,
+        },
+        0
+      ).to(
+        panel,
+        {
+          scale: 1,
+          opacity: 1,
+          pointerEvents: "auto",
+          duration,
+          ease,
+        },
+        0
+      );
     } else {
-      tl.to(overlay, {
-        opacity: 0,
-        pointerEvents: "none",
-        duration,
-        ease,
-      }, 0).to(panel, {
-        scale: 0.95,
-        opacity: 0,
-        pointerEvents: "none",
-        duration,
-        ease,
-      }, 0).eventCallback("onComplete", () => {
-        document.body.style.overflow = "";
-      });
+      tl.to(
+        overlay,
+        {
+          opacity: 0,
+          pointerEvents: "none",
+          duration,
+          ease,
+        },
+        0
+      )
+        .to(
+          panel,
+          {
+            scale: 0.95,
+            opacity: 0,
+            pointerEvents: "none",
+            duration,
+            ease,
+          },
+          0
+        )
+        .eventCallback("onComplete", () => {
+          document.body.style.overflow = "";
+        });
     }
   }, [isOpen]);
 
@@ -82,23 +100,34 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       />
       <div
         ref={panelRef}
-        className="fixed left-1/2 top-1/2 z-50 w-full max-w-[min(360px,90vw)] -translate-x-1/2 -translate-y-1/2 glass-strong rounded-2xl p-6 shadow-xl opacity-0 pointer-events-none"
+        className="fixed left-1/2 top-1/2 z-50 w-full max-w-[min(360px,90vw)] -translate-x-1/2 -translate-y-1/2 glass-strong rounded-2xl p-6 shadow-xl opacity-0 pointer-events-none text-base font-bold lg:text-3xl"
         role="dialog"
         aria-modal="true"
         aria-label={t("title")}
       >
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-bold uppercase tracking-tight text-text-primary">
+          <h2 className="uppercase tracking-tight text-text-primary text-base font-bold lg:text-3xl">
             {t("title")}
           </h2>
           <button
             type="button"
             onClick={onClose}
-            className="rounded-lg p-3 text-text-secondary transition-colors lg:hover:bg-white/10 lg:hover:text-text-primary"
+            className="rounded-lg p-3 text-text-secondary transition-colors lg:hover:bg-white/10 lg:hover:text-text-primary text-base font-bold lg:text-3xl lg:p-4"
             aria-label={t("close")}
           >
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            <svg
+              className="h-5 w-5 lg:h-8 lg:w-8"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           </button>
         </div>
@@ -109,7 +138,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
               href={link.href}
               target={link.external ? "_blank" : undefined}
               rel={link.external ? "noopener noreferrer" : undefined}
-              className="block rounded-lg py-3 px-3 text-lg font-medium text-text-primary transition-colors lg:hover:bg-white/10 lg:hover:text-accent-primary"
+              className="block rounded-lg py-3 px-3 text-base font-bold text-text-primary transition-colors lg:hover:bg-white/10 lg:hover:text-accent-primary lg:text-3xl"
               onClick={onClose}
             >
               {link.label}
