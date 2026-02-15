@@ -1,6 +1,6 @@
-# 🚀 Portfolio — Vision, ADN & Design System
+# Portfolio — Vision, ADN & Design System
 
-## 🎯 Objectif du projet
+## Objectif du projet
 
 Créer un **portfolio qui sort radicalement du lot**, pensé comme un **produit**, pas comme une vitrine marketing.
 
@@ -13,7 +13,7 @@ Ce portfolio doit :
 
 ---
 
-## 🧠 ADN & Concept
+## ADN & Concept
 
 ### Concept global
 
@@ -40,16 +40,16 @@ Mais :
 
 ---
 
-## 🎨 Design System — Palette officielle
+## Design System — Palette officielle
 
-### 🎯 Principes couleur
+### Principes couleur
 
 * Ambiance **night / urban / néon**
 * Contraste élevé
 * Accents rares mais puissants
 * Aucun blanc pur
 
-### 🎨 Palette exacte
+### Palette exacte
 
 #### Backgrounds
 
@@ -89,9 +89,9 @@ Mais :
 
 ---
 
-## 🔤 Typographie — Identité forte
+## Typographie — Identité forte
 
-### 🎯 Principes
+### Principes
 
 * Lisibilité maximale
 * Sérieux, technique, précis
@@ -127,7 +127,7 @@ Utilisation :
 * metadata
 * sections projets
 
-👉 La mono donne le ton : *engineering first*
+La mono donne le ton : *engineering first*
 
 ---
 
@@ -140,7 +140,7 @@ Utilisation :
 
 ---
 
-## ⚙️ Implémentation technique (preview)
+## Implémentation technique (preview)
 
 * `next/font` uniquement
 * Fonts centralisées dans `/lib/config/fonts.ts`
@@ -161,7 +161,7 @@ Utilisation :
 
 ---
 
-## 🧠 Règle fondamentale
+## Règle fondamentale
 
 Ce portfolio doit être :
 
