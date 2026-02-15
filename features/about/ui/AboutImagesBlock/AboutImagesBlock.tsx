@@ -13,33 +13,37 @@ type AboutImagesBlockProps = {
 export function AboutImagesBlock({ items }: AboutImagesBlockProps) {
   const t = useTranslations();
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
-  const [selectedTitleKey, setSelectedTitleKey] = useState<string | null>(null);
+  const [selectedItem, setSelectedItem] = useState<AboutItemConfig | null>(null);
 
-  const openOverlay = (titleKey: string) => {
-    setSelectedTitleKey(titleKey);
+  const openOverlay = (item: AboutItemConfig) => {
+    setSelectedItem(item);
     setIsOverlayOpen(true);
   };
 
   const closeOverlay = () => {
     setIsOverlayOpen(false);
-    setSelectedTitleKey(null);
+    setSelectedItem(null);
   };
 
   return (
     <>
       <div className="hidden lg:flex lg:w-full lg:shrink-0 lg:h-[min(100vh,560px)] xl:h-[min(100vh,500px)] 2xl:h-[min(100vh,700px)] lg:gap-3 lg:px-4 lg:pb-0">
-        {items.map(({ id, image, titleKey }) => (
+        {items.map((item) => (
           <AboutImageCard
-            key={id}
-            image={image}
-            title={t(titleKey)}
-            onOpen={() => openOverlay(titleKey)}
+            key={item.id}
+            image={item.image}
+            title={t(item.titleKey)}
+            onOpen={() => openOverlay(item)}
           />
         ))}
       </div>
 
-      {isOverlayOpen && selectedTitleKey && (
-        <AboutOverlay titleKey={selectedTitleKey} onClose={closeOverlay} />
+      {isOverlayOpen && selectedItem && (
+        <AboutOverlay
+          titleKey={selectedItem.titleKey}
+          sectionKeys={selectedItem.sectionKeys}
+          onClose={closeOverlay}
+        />
       )}
     </>
   );

@@ -6,6 +6,8 @@ import gsap from "gsap";
 
 type AboutOverlayProps = {
   titleKey: string;
+  /** Clés des 3 sections (ex: about.tech.sections.reactNext) → .title affiché sous chaque barre */
+  sectionKeys: [string, string, string];
   onClose: () => void;
 };
 
@@ -14,8 +16,9 @@ const LINE_ANIMATION_DELAY = 0.2;
 const LINE_EASE = "power2.out";
 const BAR_HEIGHT = 40;
 const BAR_ANIMATION_DURATION = 0.5;
+const SUBTITLE_ANIMATION_DURATION = 0.4;
 
-export function AboutOverlay({ titleKey, onClose }: AboutOverlayProps) {
+export function AboutOverlay({ titleKey, sectionKeys, onClose }: AboutOverlayProps) {
   const t = useTranslations();
   const [isClosing, setIsClosing] = useState(false);
   const verticalLineRef = useRef<HTMLDivElement>(null);
@@ -23,6 +26,9 @@ export function AboutOverlay({ titleKey, onClose }: AboutOverlayProps) {
   const barLeftRef = useRef<HTMLDivElement>(null);
   const barCenterRef = useRef<HTMLDivElement>(null);
   const barRightRef = useRef<HTMLDivElement>(null);
+  const subtitleLeftRef = useRef<HTMLParagraphElement>(null);
+  const subtitleCenterRef = useRef<HTMLParagraphElement>(null);
+  const subtitleRightRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
     const vertical = verticalLineRef.current;
@@ -30,11 +36,26 @@ export function AboutOverlay({ titleKey, onClose }: AboutOverlayProps) {
     const barLeft = barLeftRef.current;
     const barCenter = barCenterRef.current;
     const barRight = barRightRef.current;
-    if (!vertical || !horizontal || !barLeft || !barCenter || !barRight || isClosing) return;
+    const subtitleLeft = subtitleLeftRef.current;
+    const subtitleCenter = subtitleCenterRef.current;
+    const subtitleRight = subtitleRightRef.current;
+    if (
+      !vertical ||
+      !horizontal ||
+      !barLeft ||
+      !barCenter ||
+      !barRight ||
+      !subtitleLeft ||
+      !subtitleCenter ||
+      !subtitleRight ||
+      isClosing
+    )
+      return;
 
     gsap.set(vertical, { scaleY: 0 });
     gsap.set(horizontal, { scaleX: 0 });
     gsap.set([barLeft, barCenter, barRight], { scaleY: 0 });
+    gsap.set([subtitleLeft, subtitleCenter, subtitleRight], { opacity: 0, y: 8 });
 
     const tl = gsap.timeline({ overwrite: true });
     tl.to(vertical, {
@@ -53,17 +74,32 @@ export function AboutOverlay({ titleKey, onClose }: AboutOverlayProps) {
         duration: BAR_ANIMATION_DURATION,
         ease: LINE_EASE,
       })
+      .to(
+        subtitleLeft,
+        { opacity: 1, y: 0, duration: SUBTITLE_ANIMATION_DURATION, ease: LINE_EASE },
+        "-=0.1"
+      )
       .to(barCenter, {
         scaleY: 1,
         duration: BAR_ANIMATION_DURATION,
         ease: LINE_EASE,
       })
+      .to(
+        subtitleCenter,
+        { opacity: 1, y: 0, duration: SUBTITLE_ANIMATION_DURATION, ease: LINE_EASE },
+        "-=0.1"
+      )
       .to(barRight, {
         scaleY: 1,
         duration: BAR_ANIMATION_DURATION,
         ease: LINE_EASE,
-      });
-  }, [isClosing]);
+      })
+      .to(
+        subtitleRight,
+        { opacity: 1, y: 0, duration: SUBTITLE_ANIMATION_DURATION, ease: LINE_EASE },
+        "-=0.1"
+      );
+  }, [isClosing, sectionKeys]);
 
   const handleClose = useCallback(() => {
     if (isClosing) return;
@@ -95,12 +131,12 @@ export function AboutOverlay({ titleKey, onClose }: AboutOverlayProps) {
       />
       <div
         ref={horizontalLineRef}
-        className="absolute left-1/2 top-[calc(3.5rem+28vh-20px)] z-9 h-0.5 w-[calc(100vw-170px)] max-w-full -translate-x-1/2 -translate-y-1/2 origin-center bg-white/40"
+        className="absolute left-[235px] right-[235px] top-[calc(3.5rem+28vh-20px)] z-9 h-0.5 -translate-y-1/2 origin-center bg-white/40"
         aria-hidden
       />
       <div
         ref={barLeftRef}
-        className="absolute left-[85px] top-[calc(3.5rem+28vh-20px)] z-9 w-0.5 -translate-x-1/2 origin-top bg-white/40"
+        className="absolute left-[235px] top-[calc(3.5rem+28vh-20px)] z-9 w-0.5 -translate-x-1/2 origin-top bg-white/40"
         style={{ height: BAR_HEIGHT }}
         aria-hidden
       />
@@ -112,10 +148,28 @@ export function AboutOverlay({ titleKey, onClose }: AboutOverlayProps) {
       />
       <div
         ref={barRightRef}
-        className="absolute right-[85px] top-[calc(3.5rem+28vh-20px)] z-9 w-0.5 -translate-x-1/2 origin-top bg-white/40"
+        className="absolute right-[235px] top-[calc(3.5rem+28vh-20px)] z-9 w-0.5 -translate-x-1/2 origin-top bg-white/40"
         style={{ height: BAR_HEIGHT }}
         aria-hidden
       />
+      <p
+        ref={subtitleLeftRef}
+        className="absolute left-[235px] top-[calc(3.5rem+28vh+32px)] z-10 w-[min(200px,40vw)] -translate-x-1/2 text-center text-sm font-medium text-white/90"
+      >
+        {t(`${sectionKeys[0]}.title`)}
+      </p>
+      <p
+        ref={subtitleCenterRef}
+        className="absolute left-1/2 top-[calc(3.5rem+28vh+32px)] z-10 w-[min(200px,40vw)] -translate-x-1/2 text-center text-sm font-medium text-white/90"
+      >
+        {t(`${sectionKeys[1]}.title`)}
+      </p>
+      <p
+        ref={subtitleRightRef}
+        className="absolute right-[235px] top-[calc(3.5rem+28vh+32px)] z-10 w-[min(200px,40vw)] translate-x-1/2 text-center text-sm font-medium text-white/90"
+      >
+        {t(`${sectionKeys[2]}.title`)}
+      </p>
       <h2 className="absolute left-1/2 top-6 z-10 -translate-x-1/2 text-lg font-semibold uppercase tracking-wide text-white">
         {t(titleKey)}
       </h2>
