@@ -408,3 +408,9 @@ body[data-menu-open] .layout-root {
 .about-overlay.about-overlay--closing {
   animation: about-overlay-fade-out 0.25s ease-out forwards;
 }
+
+/* Barre verticale overlay mobile : épaisseur + origin (animation GSAP, même séquence que desktop) */
+.about-overlay-bar {
+  width: 2px; /* même épaisseur que desktop (w-0.5) */
+  transform-origin: top;
+}

@@ -2,7 +2,7 @@
 
 import { useRef, useMemo } from "react";
 import { useTranslations } from "next-intl";
-import { AboutOverlayCard } from "./AboutOverlayCard";
+import { AboutOverlayCard } from "../../AboutShared/AboutOverlayCard/AboutOverlayCard";
 import { useClosingTransition } from "../../../hooks/useClosingTransition";
 import { useAboutOverlayRevealAnimation } from "../../../hooks/useAboutOverlayRevealAnimation";
 import { ABOUT_OVERLAY_ANIMATION } from "../../../data/aboutOverlayAnimationConfig";

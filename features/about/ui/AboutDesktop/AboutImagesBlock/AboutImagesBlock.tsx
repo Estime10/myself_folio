@@ -28,11 +28,13 @@ export function AboutImagesBlock({ items }: AboutImagesBlockProps) {
       </div>
 
       {overlay.isOpen && overlay.selectedItem && (
-        <AboutOverlay
-          titleKey={overlay.selectedItem.titleKey}
-          sectionKeys={overlay.selectedItem.sectionKeys}
-          onClose={overlay.close}
-        />
+        <div className="hidden min-[1220px]:block">
+          <AboutOverlay
+            titleKey={overlay.selectedItem.titleKey}
+            sectionKeys={overlay.selectedItem.sectionKeys}
+            onClose={overlay.close}
+          />
+        </div>
       )}
     </>
   );

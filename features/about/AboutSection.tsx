@@ -1,8 +1,9 @@
 import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/container/Container";
 import { aboutItemsConfig } from "./data/aboutConfig";
-import { AboutImagesBlock } from "./ui/AboutImagesBlock/AboutImagesBlock/AboutImagesBlock";
-import { AboutCardsColumn } from "./ui/AboutImagesBlock/AboutCardsColumn/AboutCardsColumn";
+import { AboutOverlayProvider } from "./context/AboutOverlayContext";
+import { AboutImagesBlock } from "./ui/AboutDesktop/AboutImagesBlock/AboutImagesBlock";
+import { AboutCardsColumn } from "./ui/AboutMobile/AboutCardsColumn/AboutCardsColumn";
 
 export async function AboutSection() {
   const t = await getTranslations("about");
@@ -27,14 +28,17 @@ export async function AboutSection() {
           </p>
         </div>
       </Container>
-      {/* AboutCardsColumn : visible uniquement en dessous de 1220px */}
-      <div className="min-[1220px]:hidden">
-        <AboutCardsColumn items={aboutItemsConfig} />
-      </div>
-      {/* AboutImagesBlock : visible à partir de 1220px */}
-      <div className="hidden min-[1220px]:block">
-        <AboutImagesBlock items={aboutItemsConfig} />
-      </div>
+      {/* Un seul état overlay partagé (desktop + mobile) */}
+      <AboutOverlayProvider>
+        {/* AboutCardsColumn : mobile, visible en dessous de 1220px */}
+        <div className="min-[1220px]:hidden">
+          <AboutCardsColumn items={aboutItemsConfig} />
+        </div>
+        {/* AboutImagesBlock : desktop, visible à partir de 1220px */}
+        <div className="hidden min-[1220px]:block">
+          <AboutImagesBlock items={aboutItemsConfig} />
+        </div>
+      </AboutOverlayProvider>
     </section>
   );
 }
