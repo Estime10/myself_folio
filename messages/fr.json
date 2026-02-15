@@ -40,6 +40,59 @@
       "role": "Stratégie produit, direction UX/UI et livraison front-end"
     }
   },
+  "about": {
+    "tech": {
+      "title": "Tech mindset",
+      "sections": {
+        "reactNext": {
+          "title": "React (Next.js)",
+          "description": "Je développe des applications web modernes avec React et Next.js, en accordant une attention particulière à la performance, l'accessibilité et la scalabilité. Je porte beaucoup d'importance à la structure des composants, à la gestion de l'état et à l'expérience utilisateur pour créer des interfaces rapides, intuitives et fiables."
+        },
+        "reactNative": {
+          "title": "React Native",
+          "description": "Je conçois des applications mobiles cross-platform avec le même niveau d'exigence que mes projets web. Mon approche repose sur des interactions fluides, des composants réutilisables et une logique claire afin de garantir des applications maintenables et évolutives."
+        },
+        "vision": {
+          "title": "Vision",
+          "description": "Pour moi, un bon développement repose sur la clarté et la durabilité. Je privilégie les architectures simples, le code lisible et les décisions pragmatiques plutôt que la complexité inutile. Mon objectif est de construire des produits faciles à comprendre, à faire évoluer et faits pour durer."
+        }
+      }
+    },
+    "athlete": {
+      "title": "Athlete mindset",
+      "sections": {
+        "discipline": {
+          "title": "Discipline",
+          "description": "Le basketball pratiqué à haut niveau m'a appris la régularité et l'engagement quotidien. Le progrès vient de la répétition, de la structure et de la capacité à avancer même lorsque la motivation baisse."
+        },
+        "competitiveness": {
+          "title": "Compétitivité",
+          "description": "La compétition a façonné mon état d'esprit. Je cherche naturellement à élever les standards, obtenir de meilleurs résultats et progresser en continu. Je n'aime pas perdre — et je ne me contente jamais du minimum."
+        },
+        "resilience": {
+          "title": "Résilience",
+          "description": "Le sport m'a appris à gérer la pression, les échecs et les défis. Je reste concentré, je m'adapte rapidement et je vais toujours au bout de ce que je commence."
+        }
+      }
+    },
+    "entrepreneur": {
+      "title": "Entrepreneur mindset",
+      "sections": {
+        "ownership": {
+          "title": "Responsabilité",
+          "description": "Je m'investis dans un projet de la première idée jusqu'à la livraison finale. Le freelance m'a appris l'autonomie, la rigueur et l'importance de faire fonctionner les choses concrètement."
+        },
+        "adaptability": {
+          "title": "Adaptabilité",
+          "description": "Travailler sur des projets variés et avec différents clients m'a appris à comprendre rapidement de nouveaux contextes, technologies et contraintes."
+        },
+        "execution": {
+          "title": "Exécution",
+          "description": "Je privilégie l'action à la théorie. Concevoir, tester, améliorer et livrer des produits concrets est ce qui me motive. Une idée n'a de valeur que lorsqu'elle devient réelle."
+        }
+      }
+    }
+  },
   "tech": {
     "next": "Next.js",
     "ts": "TypeScript",

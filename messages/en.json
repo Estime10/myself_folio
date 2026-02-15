@@ -40,6 +40,59 @@
       "role": "Product strategy, UX/UI direction and front-end delivery"
     }
   },
+  "about": {
+    "tech": {
+      "title": "Tech mindset",
+      "sections": {
+        "reactNext": {
+          "title": "React (Next.js)",
+          "description": "I build modern web applications using React and Next.js, focusing on performance, accessibility, and maintainable architecture. I pay close attention to component structure, state management, and user experience to create interfaces that feel fast, intuitive, and reliable."
+        },
+        "reactNative": {
+          "title": "React Native",
+          "description": "I develop mobile applications that share the same level of quality and structure as web projects. My approach focuses on smooth interactions, reusable components, and clean logic so apps remain scalable and easy to maintain over time."
+        },
+        "vision": {
+          "title": "Vision",
+          "description": "I believe good development is about clarity and longevity. I prioritize simple architectures, readable code, and pragmatic decisions over unnecessary complexity. My goal is to build products that are easy to understand, easy to evolve, and built to last."
+        }
+      }
+    },
+    "athlete": {
+      "title": "Athlete mindset",
+      "sections": {
+        "discipline": {
+          "title": "Discipline",
+          "description": "Playing basketball at a high level taught me consistency and daily commitment. Progress comes from repetition, structure, and showing up even when motivation isn't there."
+        },
+        "competitiveness": {
+          "title": "Competitiveness",
+          "description": "Competition shaped my mindset. I naturally push for better results, higher standards, and constant improvement. I don't like losing — and I don't stop at \"good enough\"."
+        },
+        "resilience": {
+          "title": "Resilience",
+          "description": "Sport taught me how to handle pressure, setbacks, and challenges. I stay focused, adapt quickly, and keep moving forward until the goal is reached."
+        }
+      }
+    },
+    "entrepreneur": {
+      "title": "Entrepreneur mindset",
+      "sections": {
+        "ownership": {
+          "title": "Ownership",
+          "description": "I take projects seriously from the first idea to the final delivery. Being freelance taught me responsibility, autonomy, and the importance of making things work in real conditions."
+        },
+        "adaptability": {
+          "title": "Adaptability",
+          "description": "Working on different projects and with different clients taught me to learn quickly and adjust to new contexts, technologies, and constraints."
+        },
+        "execution": {
+          "title": "Execution",
+          "description": "I value action over theory. Building, testing, iterating, and delivering real products is what drives me. Ideas only matter when they become something tangible."
+        }
+      }
+    }
+  },
   "tech": {
     "next": "Next.js",
     "ts": "TypeScript",
