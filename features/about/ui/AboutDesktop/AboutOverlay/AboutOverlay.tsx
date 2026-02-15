@@ -3,22 +3,29 @@
 import { useRef, useMemo } from "react";
 import { useTranslations } from "next-intl";
 import { AboutOverlayCard } from "../../AboutShared/AboutOverlayCard/AboutOverlayCard";
-import { useClosingTransition } from "../../../hooks/useClosingTransition";
+import { AboutOverlayShell } from "../../AboutShared/AboutOverlayShell/AboutOverlayShell";
 import { useAboutOverlayRevealAnimation } from "../../../hooks/useAboutOverlayRevealAnimation";
 import { ABOUT_OVERLAY_ANIMATION } from "../../../data/aboutOverlayAnimationConfig";
 
 type AboutOverlayProps = {
   titleKey: string;
   sectionKeys: [string, string, string];
-  onClose: () => void;
+  isClosing: boolean;
+  requestClose: () => void;
+  handleAnimationEnd: (e: React.AnimationEvent<HTMLDivElement>) => void;
 };
 
 const BAR_HEIGHT = ABOUT_OVERLAY_ANIMATION.bar.height;
 
-export function AboutOverlay({ titleKey, sectionKeys, onClose }: AboutOverlayProps) {
+export function AboutOverlay({
+  titleKey,
+  sectionKeys,
+  isClosing,
+  requestClose,
+  handleAnimationEnd,
+}: AboutOverlayProps) {
   const t = useTranslations();
-  const { isClosing, requestClose, handleAnimationEnd } =
-    useClosingTransition(onClose);
+  const closeLabel = t("contact.close");
 
   const verticalLineRef = useRef<HTMLDivElement>(null);
   const horizontalLineRef = useRef<HTMLDivElement>(null);
@@ -46,38 +53,40 @@ export function AboutOverlay({ titleKey, sectionKeys, onClose }: AboutOverlayPro
   useAboutOverlayRevealAnimation({ refs, isClosing, sectionKeys });
 
   return (
-    <div
-      className={`about-overlay fixed inset-0 z-9998 bg-black/30 backdrop-blur-md ${isClosing ? "about-overlay--closing" : ""}`}
-      aria-modal
-      aria-label={t("contact.close")}
-      role="dialog"
+    <AboutOverlayShell
+      title={t(titleKey)}
+      closeLabel={closeLabel}
+      isClosing={isClosing}
       onAnimationEnd={handleAnimationEnd}
+      onRequestClose={requestClose}
+      closeButtonVariant="text"
+      ariaLabel={closeLabel}
     >
       <div
         ref={verticalLineRef}
-        className="absolute left-1/2 top-14 z-9 h-[calc(28vh-20px)] w-0.5 -translate-x-1/2 origin-top bg-white/40"
+        className="absolute left-1/2 top-14 z-[9] h-[calc(28vh-20px)] w-0.5 -translate-x-1/2 origin-top bg-white/40"
         aria-hidden
       />
       <div
         ref={horizontalLineRef}
-        className="absolute left-[235px] right-[235px] top-[calc(3.5rem+28vh-20px)] z-9 h-0.5 -translate-y-1/2 origin-center bg-white/40"
+        className="absolute left-[235px] right-[235px] top-[calc(3.5rem+28vh-20px)] z-[9] h-0.5 -translate-y-1/2 origin-center bg-white/40"
         aria-hidden
       />
       <div
         ref={barLeftRef}
-        className="absolute left-[235px] top-[calc(3.5rem+28vh-20px)] z-9 w-0.5 -translate-x-1/2 origin-top bg-white/40"
+        className="absolute left-[235px] top-[calc(3.5rem+28vh-20px)] z-[9] w-0.5 -translate-x-1/2 origin-top bg-white/40"
         style={{ height: BAR_HEIGHT }}
         aria-hidden
       />
       <div
         ref={barCenterRef}
-        className="absolute left-1/2 top-[calc(3.5rem+28vh-20px)] z-9 w-0.5 -translate-x-1/2 origin-top bg-white/40"
+        className="absolute left-1/2 top-[calc(3.5rem+28vh-20px)] z-[9] w-0.5 -translate-x-1/2 origin-top bg-white/40"
         style={{ height: BAR_HEIGHT }}
         aria-hidden
       />
       <div
         ref={barRightRef}
-        className="absolute right-[235px] top-[calc(3.5rem+28vh-20px)] z-9 w-0.5 -translate-x-1/2 origin-top bg-white/40"
+        className="absolute right-[235px] top-[calc(3.5rem+28vh-20px)] z-[9] w-0.5 -translate-x-1/2 origin-top bg-white/40"
         style={{ height: BAR_HEIGHT }}
         aria-hidden
       />
@@ -108,20 +117,6 @@ export function AboutOverlay({ titleKey, sectionKeys, onClose }: AboutOverlayPro
           description={t(`${sectionKeys[2]}.description`)}
         />
       </div>
-      <h2 className="absolute left-1/2 top-6 z-10 -translate-x-1/2 text-lg font-semibold uppercase tracking-wide text-white">
-        {t(titleKey)}
-      </h2>
-      <button
-        type="button"
-        className="absolute right-4 top-4 z-10 cursor-pointer rounded-lg bg-white/10 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-white/20"
-        onClick={(e) => {
-          e.stopPropagation();
-          requestClose();
-        }}
-        aria-label={t("contact.close")}
-      >
-        {t("contact.close")}
-      </button>
-    </div>
+    </AboutOverlayShell>
   );
 }

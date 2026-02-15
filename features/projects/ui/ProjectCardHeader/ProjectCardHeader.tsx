@@ -9,7 +9,7 @@ export function ProjectCardHeader({ project }: ProjectCardHeaderProps) {
   return (
     <div className="relative h-[25%]">
       {/* Visuel / image abstraite */}
-      <div className="absolute inset-0 bg-linear-to-br from-white/8 via-accent-primary/20 to-black/60" />
+      <div className="card-header-gradient absolute inset-0" />
       <div className="absolute inset-[18px] rounded-xl border border-white/8 bg-black/20 shadow-[0_12px_40px_rgba(0,0,0,0.7)] transition-transform duration-500 group-hover:translate-y-[-2px] group-hover:shadow-[0_18px_60px_rgba(0,0,0,0.85)]" />
 
       {/* Titre centré dans la zone haute */}

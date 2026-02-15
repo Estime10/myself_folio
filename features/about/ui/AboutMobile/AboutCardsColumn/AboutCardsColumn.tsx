@@ -12,14 +12,13 @@ type AboutCardsColumnProps = {
 };
 
 export function AboutCardsColumn({ items = [] }: AboutCardsColumnProps) {
-  const list = items ?? [];
   const overlay = useAboutOverlay();
 
   useLockBodyScroll(overlay.isOpen);
 
   return (
     <>
-      <AboutCardsGrid items={list} onCardClick={overlay.open} />
+      <AboutCardsGrid items={items} onCardClick={overlay.open} />
       {overlay.isOpen && (
         <div className="min-[1220px]:hidden">
           <AboutMobileOverlay

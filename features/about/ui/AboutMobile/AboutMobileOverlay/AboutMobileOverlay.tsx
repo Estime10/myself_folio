@@ -1,8 +1,8 @@
 "use client";
 
-import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import type { AboutItemConfig } from "../../../data/aboutConfig";
+import { AboutOverlayShell } from "../../AboutShared/AboutOverlayShell/AboutOverlayShell";
 import { AboutMobileOverlayContent } from "../AboutMobileOverlayContent/AboutMobileOverlayContent";
 
 type AboutMobileOverlayProps = {
@@ -19,37 +19,25 @@ export function AboutMobileOverlay({
   onAnimationEnd,
 }: AboutMobileOverlayProps) {
   const t = useTranslations();
+  const closeLabel = t("contact.close");
+
+  if (!selectedItem) return null;
 
   return (
-    <div
-      className={`about-overlay fixed inset-0 z-[9998] bg-black/30 backdrop-blur-md ${isClosing ? "about-overlay--closing" : ""}`}
-      aria-modal
-      role="dialog"
-      aria-label={
-        selectedItem ? t(selectedItem.titleKey) : t("contact.close")
-      }
+    <AboutOverlayShell
+      title={t(selectedItem.titleKey)}
+      closeLabel={closeLabel}
+      isClosing={isClosing}
       onAnimationEnd={onAnimationEnd}
+      onRequestClose={onRequestClose}
+      closeButtonVariant="icon"
+      ariaLabel={t(selectedItem.titleKey)}
     >
-      {selectedItem && (
-        <>
-          <h2 className="absolute left-1/2 top-6 z-10 -translate-x-1/2 text-lg font-semibold uppercase tracking-wide text-white">
-            {t(selectedItem.titleKey)}
-          </h2>
-          <AboutMobileOverlayContent
-            selectedItem={selectedItem}
-            isOpen
-            isClosing={isClosing}
-          />
-        </>
-      )}
-      <button
-        type="button"
-        className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full text-white outline-none"
-        onClick={onRequestClose}
-        aria-label={t("contact.close")}
-      >
-        <X className="h-5 w-5" aria-hidden />
-      </button>
-    </div>
+      <AboutMobileOverlayContent
+        selectedItem={selectedItem}
+        isOpen
+        isClosing={isClosing}
+      />
+    </AboutOverlayShell>
   );
 }

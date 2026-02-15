@@ -32,7 +32,9 @@ export function AboutImagesBlock({ items }: AboutImagesBlockProps) {
           <AboutOverlay
             titleKey={overlay.selectedItem.titleKey}
             sectionKeys={overlay.selectedItem.sectionKeys}
-            onClose={overlay.close}
+            isClosing={overlay.isClosing}
+            requestClose={overlay.requestClose}
+            handleAnimationEnd={overlay.handleAnimationEnd}
           />
         </div>
       )}

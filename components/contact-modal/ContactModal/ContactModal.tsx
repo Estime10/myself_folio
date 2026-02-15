@@ -131,14 +131,14 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             </svg>
           </button>
         </div>
-        <nav className="flex flex-col gap-1">
+        <nav className="flex flex-col items-center gap-5">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
               target={link.external ? "_blank" : undefined}
               rel={link.external ? "noopener noreferrer" : undefined}
-              className="modal-text block rounded-lg px-3 py-3 text-text-primary transition-colors lg:hover:bg-white/10 lg:hover:text-accent-primary"
+              className="nav-link-mobile nav-link-mobile--inactive"
               onClick={onClose}
             >
               {link.label}

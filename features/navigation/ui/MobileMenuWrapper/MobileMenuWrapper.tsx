@@ -36,7 +36,7 @@ export function MobileMenuWrapper() {
       />
       <div
         ref={panelRef}
-        className={`fixed inset-0 z-10000 flex w-full items-center justify-center p-6 glass-menu lg:hidden ${!initialized ? "invisible" : ""}`}
+        className={`fixed inset-0 z-[10000] flex w-full items-center justify-center p-6 glass-menu lg:hidden ${!initialized ? "invisible" : ""}`}
         role="dialog"
         aria-modal="true"
         aria-label="Menu de navigation"

@@ -14,7 +14,7 @@ export function ProjectCard({
   tags,
 }: ProjectCardProps) {
   return (
-    <article className="group relative flex h-full min-h-[360px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-bg-tertiary/60 shadow-[0_18px_45px_rgba(0,0,0,0.7)] backdrop-blur-xl">
+    <article className="card-base group relative flex h-full min-h-[360px] flex-col overflow-hidden">
       <ProjectCardHeader project={{ name: project.name, url: project.url }} />
       <ProjectCardBody project={{ summary, tags }} />
     </article>

@@ -87,19 +87,29 @@ export function AboutMobileOverlayContent({
     const tl = gsap.timeline({ overwrite: true });
     tl.to(bar1, { scaleY: 1, duration: MOBILE_BAR_DURATION, ease })
       .to(card1, { opacity: 1, y: 0, duration: MOBILE_CARD_DURATION, ease: cardConfig.ease })
-      .add(() => scrollToEl(bar2))
+      .add(() => {
+        scrollToEl(bar2);
+      })
       .add(pause(SCROLL_DURATION))
       .to(bar2, { scaleY: 1, duration: MOBILE_BAR_DURATION, ease })
-      .add(() => scrollToEl(card2))
+      .add(() => {
+        scrollToEl(card2);
+      })
       .add(pause(SCROLL_DURATION))
       .to(card2, { opacity: 1, y: 0, duration: MOBILE_CARD_DURATION, ease: cardConfig.ease })
-      .add(() => scrollToEl(bar3))
+      .add(() => {
+        scrollToEl(bar3);
+      })
       .add(pause(SCROLL_DURATION))
       .to(bar3, { scaleY: 1, duration: MOBILE_BAR_DURATION, ease })
-      .add(() => scrollToEl(card3))
+      .add(() => {
+        scrollToEl(card3);
+      })
       .add(pause(SCROLL_DURATION))
       .to(card3, { opacity: 1, y: 0, duration: MOBILE_CARD_DURATION, ease: cardConfig.ease })
-      .add(() => scrollToEl(card3))
+      .add(() => {
+        scrollToEl(card3);
+      })
       .add(pause(SCROLL_DURATION));
   }, [isOpen, isClosing]);
 
