@@ -8,5 +8,6 @@ export const navigationItems: NavigationItem[] = [
   { translationKey: "common.home", href: "/" },
   { translationKey: "common.projects", href: "/projects" },
   { translationKey: "common.about", href: "/about" },
+  { translationKey: "common.testimonials", href: "/testimonials" },
   { translationKey: "common.contact", href: "/contact" },
 ];

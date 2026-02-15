@@ -300,6 +300,24 @@ body {
 }
 
 /* Liens nav desktop */
+.nav-links-desktop {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .nav-links-desktop {
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .nav-links-desktop {
+    gap: 3rem;
+  }
+}
+
 .nav-link-desktop {
   flex-shrink: 0;
   font-size: 1.125rem;
