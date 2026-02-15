@@ -94,25 +94,25 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     <>
       <div
         ref={overlayRef}
-        className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none"
+        className="overlay opacity-0 pointer-events-none"
         onClick={onClose}
         aria-hidden
       />
       <div
         ref={panelRef}
-        className="fixed left-1/2 top-1/2 z-50 w-full max-w-[min(360px,90vw)] -translate-x-1/2 -translate-y-1/2 glass-strong rounded-2xl p-6 shadow-xl opacity-0 pointer-events-none text-base font-bold lg:text-3xl"
+        className="modal-text fixed left-1/2 top-1/2 z-50 w-full max-w-[min(360px,90vw)] -translate-x-1/2 -translate-y-1/2 rounded-2xl p-6 shadow-xl glass-strong opacity-0 pointer-events-none"
         role="dialog"
         aria-modal="true"
         aria-label={t("title")}
       >
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="uppercase tracking-tight text-text-primary text-base font-bold lg:text-3xl">
+        <div className="mb-6 flex items-center justify-between">
+          <h2 className="modal-text uppercase tracking-tight text-text-primary">
             {t("title")}
           </h2>
           <button
             type="button"
             onClick={onClose}
-            className="rounded-lg p-3 text-text-secondary transition-colors lg:hover:bg-white/10 lg:hover:text-text-primary text-base font-bold lg:text-3xl lg:p-4"
+            className="modal-text rounded-lg p-3 text-text-secondary transition-colors lg:p-4 lg:hover:bg-white/10 lg:hover:text-text-primary"
             aria-label={t("close")}
           >
             <svg
@@ -138,7 +138,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
               href={link.href}
               target={link.external ? "_blank" : undefined}
               rel={link.external ? "noopener noreferrer" : undefined}
-              className="block rounded-lg py-3 px-3 text-base font-bold text-text-primary transition-colors lg:hover:bg-white/10 lg:hover:text-accent-primary lg:text-3xl"
+              className="modal-text block rounded-lg px-3 py-3 text-text-primary transition-colors lg:hover:bg-white/10 lg:hover:text-accent-primary"
               onClick={onClose}
             >
               {link.label}

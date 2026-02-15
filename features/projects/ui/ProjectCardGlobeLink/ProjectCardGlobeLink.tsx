@@ -29,25 +29,21 @@ const globeIcon = (
 );
 
 export function ProjectCardGlobeLink({ name, url }: ProjectCardGlobeLinkProps) {
-  const hasUrl = Boolean(url);
-
-  if (hasUrl) {
+  if (!url) {
     return (
-      <Link
-        href={url as string}
-        target="_blank"
-        rel="noreferrer"
-        className="absolute flex h-7 w-7 items-center justify-center rounded-full border border-white/25 bg-bg-tertiary shadow-[0_0_0_1px_rgba(0,0,0,0.7)] transition-transform duration-300 group-hover:scale-110"
-        aria-label={`Ouvrir le site ${name}`}
-      >
-        {globeIcon}
-      </Link>
+      <div className="globe-button globe-button--disabled">{globeIcon}</div>
     );
   }
 
   return (
-    <div className="absolute flex h-7 w-7 items-center justify-center rounded-full border border-white/20 bg-bg-tertiary/80 shadow-[0_0_0_1px_rgba(0,0,0,0.7)] opacity-70">
+    <Link
+      href={url}
+      target="_blank"
+      rel="noreferrer"
+      className="globe-button globe-button--link"
+      aria-label={`Ouvrir le site ${name}`}
+    >
       {globeIcon}
-    </div>
+    </Link>
   );
 }

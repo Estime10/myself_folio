@@ -223,6 +223,107 @@ body {
   padding-right: var(--safe-area-inset-right);
 }
 
+/* Overlay (modale, menu mobile) */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Typo modale contact */
+.modal-text {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+@media (min-width: 1024px) {
+  .modal-text {
+    font-size: 1.875rem;
+  }
+}
+
+/* Liens nav mobile */
+.nav-link-mobile {
+  display: block;
+  padding: 0.75rem 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+}
+
+.nav-link-mobile--active {
+  color: var(--accent-primary);
+}
+
+.nav-link-mobile--inactive {
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+@media (min-width: 1024px) {
+  .nav-link-mobile--inactive:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--accent-primary);
+  }
+}
+
+/* Liens nav desktop */
+.nav-link-desktop {
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.nav-link-desktop--active {
+  color: var(--accent-primary);
+}
+
+.nav-link-desktop--inactive {
+  transition: color 0.2s ease;
+}
+
+@media (min-width: 1024px) {
+  .nav-link-desktop--inactive:hover {
+    color: var(--accent-primary);
+  }
+}
+
+/* Tags projet (taille texte) */
+.tag-text {
+  font-size: 11px;
+}
+
+/* Bouton globe (carte projet) */
+.globe-button {
+  position: absolute;
+  display: flex;
+  height: 1.75rem;
+  width: 1.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.7);
+}
+
+.globe-button--disabled {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--bg-tertiary-base);
+  opacity: 0.7;
+}
+
+.globe-button--link {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: var(--bg-tertiary-base);
+  transition: transform 0.3s ease;
+}
+
+.group:hover .globe-button--link {
+  transform: scale(1.1);
+}
+
 /* Transition d'apparition du header après les animations de page */
 .site-header {
   opacity: 1;

@@ -34,7 +34,7 @@ export function LanguageToggle({ currentLocale }: LanguageToggleProps) {
             {lang.label}
           </button>
           {index < languages.length - 1 && (
-            <span className="text-text-secondary mx-1">/</span>
+            <span className="mx-1 text-text-secondary">/</span>
           )}
         </div>
       ))}

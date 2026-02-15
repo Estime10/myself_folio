@@ -18,7 +18,7 @@ export function HeroText({
         <span>{titleLine2}</span>
         <span>{titleLine3}</span>
       </h1>
-      <p className="mt-4 max-w-lg lg:max-w-4xl text-lg text-text-secondary md:text-xl lg:text-3xl">
+      <p className="mt-4 max-w-lg text-lg text-text-secondary md:text-xl lg:max-w-4xl lg:text-3xl">
         {bio}
       </p>
     </>

@@ -19,25 +19,25 @@ export function MobileMenuWrapper() {
     <>
       <div
         ref={overlayRef}
-        className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm lg:hidden"
+        className="overlay lg:hidden"
         onClick={closeMobileMenu}
         aria-hidden
       />
       <div
         ref={panelRef}
-        className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-[min(320px,85vw)] glass-strong rounded-l-2xl p-6 pt-[calc(1.5rem+env(safe-area-inset-top))] lg:hidden"
+        className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-[min(320px,85vw)] rounded-l-2xl p-6 pt-[calc(1.5rem+env(safe-area-inset-top))] glass-strong lg:hidden"
         role="dialog"
         aria-modal="true"
         aria-label="Menu de navigation"
       >
-        <nav ref={navRef} className="flex flex-col gap-1 mt-8">
+        <nav ref={navRef} className="mt-8 flex flex-col gap-1">
           {navigationItems.map((item) => {
             const key = item.translationKey.replace("common.", "");
             const isActive = pathname === item.href;
             return isActive ? (
               <span
                 key={item.href}
-                className="block py-3 px-2 text-xl font-medium rounded-lg text-accent-primary uppercase"
+                className="nav-link-mobile nav-link-mobile--active"
                 aria-current="page"
               >
                 {t(key)}
@@ -46,7 +46,7 @@ export function MobileMenuWrapper() {
               <AppLink
                 key={item.href}
                 href={item.href}
-                className="block py-3 px-2 text-xl font-medium rounded-lg transition-colors lg:hover:bg-white/10 lg:hover:text-accent-primary uppercase"
+                className="nav-link-mobile nav-link-mobile--inactive"
                 onNavigate={closeMobileMenu}
               >
                 {t(key)}
