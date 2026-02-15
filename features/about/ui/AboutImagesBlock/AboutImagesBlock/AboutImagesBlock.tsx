@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { useTranslations } from "next-intl";
 import type { AboutItemConfig } from "../../../data/aboutConfig";
+import { useAboutOverlay } from "../../../hooks/useAboutOverlay";
 import { AboutImageCard } from "../AboutImageCard/AboutImageCard";
 import { AboutOverlay } from "../AboutOverlay/AboutOverlay";
 
@@ -12,18 +12,7 @@ type AboutImagesBlockProps = {
 
 export function AboutImagesBlock({ items }: AboutImagesBlockProps) {
   const t = useTranslations();
-  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState<AboutItemConfig | null>(null);
-
-  const openOverlay = (item: AboutItemConfig) => {
-    setSelectedItem(item);
-    setIsOverlayOpen(true);
-  };
-
-  const closeOverlay = () => {
-    setIsOverlayOpen(false);
-    setSelectedItem(null);
-  };
+  const overlay = useAboutOverlay();
 
   return (
     <>
@@ -33,16 +22,16 @@ export function AboutImagesBlock({ items }: AboutImagesBlockProps) {
             key={item.id}
             image={item.image}
             title={t(item.titleKey)}
-            onOpen={() => openOverlay(item)}
+            onOpen={() => overlay.open(item)}
           />
         ))}
       </div>
 
-      {isOverlayOpen && selectedItem && (
+      {overlay.isOpen && overlay.selectedItem && (
         <AboutOverlay
-          titleKey={selectedItem.titleKey}
-          sectionKeys={selectedItem.sectionKeys}
-          onClose={closeOverlay}
+          titleKey={overlay.selectedItem.titleKey}
+          sectionKeys={overlay.selectedItem.sectionKeys}
+          onClose={overlay.close}
         />
       )}
     </>

@@ -14,7 +14,7 @@ export function MobileMenuWrapper() {
   const t = useTranslations("common");
   const pathname = usePathname();
   const { isMobileMenuOpen, closeMobileMenu } = useNavigation();
-  const { overlayRef, panelRef, navRef } = useMobileMenuAnimation({
+  const { overlayRef, panelRef, navRef, initialized } = useMobileMenuAnimation({
     isOpen: isMobileMenuOpen,
   });
 
@@ -30,13 +30,13 @@ export function MobileMenuWrapper() {
     <>
       <div
         ref={overlayRef}
-        className="overlay overlay--menu lg:hidden"
+        className={`overlay overlay--menu lg:hidden ${!initialized ? "invisible" : ""}`}
         onClick={closeMobileMenu}
         aria-hidden
       />
       <div
         ref={panelRef}
-        className="fixed inset-0 z-10000 flex w-full items-center justify-center p-6 glass-menu lg:hidden"
+        className={`fixed inset-0 z-10000 flex w-full items-center justify-center p-6 glass-menu lg:hidden ${!initialized ? "invisible" : ""}`}
         role="dialog"
         aria-modal="true"
         aria-label="Menu de navigation"

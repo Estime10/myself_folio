@@ -1,7 +1,7 @@
 "use client";
 
 import gsap from "gsap";
-import { useEffect, useLayoutEffect, useRef, type RefObject } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type RefObject } from "react";
 import { usePrefersReducedMotion } from "@/lib/hooks/usePrefersReducedMotion";
 
 const OVERLAY_DURATION = 0.28;
@@ -19,6 +19,8 @@ type UseMobileMenuAnimationResult = {
   overlayRef: RefObject<HTMLDivElement | null>;
   panelRef: RefObject<HTMLDivElement | null>;
   navRef: RefObject<HTMLElement | null>;
+  /** True après le premier useLayoutEffect : évite le flash en masquant overlay/panel jusqu’à ce que GSAP ait appliqué l’état fermé */
+  initialized: boolean;
 };
 
 export function useMobileMenuAnimation({
@@ -27,6 +29,7 @@ export function useMobileMenuAnimation({
   const overlayRef = useRef<HTMLDivElement | null>(null);
   const panelRef = useRef<HTMLDivElement | null>(null);
   const navRef = useRef<HTMLElement | null>(null);
+  const [initialized, setInitialized] = useState(false);
   const reducedMotion = usePrefersReducedMotion();
 
   useLayoutEffect(() => {
@@ -41,6 +44,7 @@ export function useMobileMenuAnimation({
       const items = Array.from(nav.children);
       gsap.set(items, { opacity: 0, y: ITEM_OFFSET_Y });
     }
+    queueMicrotask(() => setInitialized(true));
   }, []);
 
   useEffect(() => {
@@ -138,5 +142,6 @@ export function useMobileMenuAnimation({
     overlayRef,
     panelRef,
     navRef,
+    initialized,
   };
 }

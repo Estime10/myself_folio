@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import type { AboutItemConfig } from "../../../data/aboutConfig";
+import { useAboutOverlay } from "../../../hooks/useAboutOverlay";
+import { useLockBodyScroll } from "@/lib/hooks/useLockBodyScroll";
 
 type AboutCardsColumnProps = {
   items?: AboutItemConfig[];
@@ -13,32 +14,9 @@ type AboutCardsColumnProps = {
 export function AboutCardsColumn({ items = [] }: AboutCardsColumnProps) {
   const t = useTranslations();
   const list = items ?? [];
-  const [overlayOpen, setOverlayOpen] = useState(false);
-  const [isClosing, setIsClosing] = useState(false);
+  const overlay = useAboutOverlay();
 
-  useEffect(() => {
-    if (typeof document === "undefined") return;
-    if (overlayOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [overlayOpen]);
-
-  const handleClose = () => {
-    if (isClosing) return;
-    setIsClosing(true);
-  };
-
-  const handleOverlayAnimationEnd = (e: React.AnimationEvent<HTMLDivElement>) => {
-    if (e.animationName.includes("fade-out")) {
-      setOverlayOpen(false);
-      setIsClosing(false);
-    }
-  };
+  useLockBodyScroll(overlay.isOpen);
 
   return (
     <>
@@ -48,7 +26,7 @@ export function AboutCardsColumn({ items = [] }: AboutCardsColumnProps) {
             key={item.id}
             type="button"
             className="group relative aspect-square w-full overflow-hidden rounded-2xl shadow-lg ring-1 ring-white/10 text-left border-0 p-0 cursor-pointer"
-            onClick={() => setOverlayOpen(true)}
+            onClick={() => overlay.open()}
           >
             <Image
               src={item.image.src}
@@ -68,18 +46,18 @@ export function AboutCardsColumn({ items = [] }: AboutCardsColumnProps) {
           </button>
         ))}
       </div>
-      {overlayOpen && (
+      {overlay.isOpen && (
         <div
-          className={`about-overlay fixed inset-0 z-[9998] bg-black/30 backdrop-blur-md ${isClosing ? "about-overlay--closing" : ""}`}
+          className={`about-overlay fixed inset-0 z-[9998] bg-black/30 backdrop-blur-md ${overlay.isClosing ? "about-overlay--closing" : ""}`}
           aria-modal
           role="dialog"
           aria-label={t("contact.close")}
-          onAnimationEnd={handleOverlayAnimationEnd}
+          onAnimationEnd={overlay.handleAnimationEnd}
         >
           <button
             type="button"
             className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full text-white outline-none"
-            onClick={handleClose}
+            onClick={overlay.requestClose}
             aria-label={t("contact.close")}
           >
             <X className="h-5 w-5" aria-hidden />
