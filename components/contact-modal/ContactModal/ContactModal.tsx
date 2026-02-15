@@ -3,7 +3,10 @@
 import gsap from "gsap";
 import { useTranslations } from "next-intl";
 import { useRef, useEffect, useLayoutEffect } from "react";
-import { contactLinks } from "@/lib/config/contact";
+import {
+  ContactLinks,
+  getContactLinks,
+} from "@/features/contact/ui/ContactLinks/ContactLinks";
 
 type ContactModalProps = {
   isOpen: boolean;
@@ -84,17 +87,13 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     }
   }, [isOpen]);
 
-  const links = [
-    { label: t("email"), href: contactLinks.email, external: false },
-    { label: t("linkedin"), href: contactLinks.linkedin, external: true },
-    { label: t("instagram"), href: contactLinks.instagram, external: true },
-  ];
+  const links = getContactLinks((key) => t(key));
 
   return (
     <>
       <div
         ref={overlayRef}
-        className="overlay opacity-0 pointer-events-none"
+        className="overlay overlay--modal opacity-0 pointer-events-none"
         onClick={onClose}
         aria-hidden
       />
@@ -131,19 +130,8 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             </svg>
           </button>
         </div>
-        <nav className="flex flex-col items-center gap-5">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              target={link.external ? "_blank" : undefined}
-              rel={link.external ? "noopener noreferrer" : undefined}
-              className="nav-link-mobile nav-link-mobile--inactive"
-              onClick={onClose}
-            >
-              {link.label}
-            </a>
-          ))}
+        <nav aria-label={t("title")}>
+          <ContactLinks links={links} onLinkClick={onClose} />
         </nav>
       </div>
     </>

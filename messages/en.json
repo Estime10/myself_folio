@@ -19,13 +19,16 @@
   },
   "contact": {
     "title": "Contact",
+    "sectionEyebrow": "Get in touch",
+    "sectionTitle": "Let's connect",
+    "sectionIntro": "Email, LinkedIn or Instagram — choose your channel.",
     "email": "Email",
     "linkedin": "LinkedIn",
     "instagram": "Instagram",
     "close": "Close"
   },
   "testimonials": {
-    "projectNameLabel": "Project name :",
+    "projectNameLabel": "Project name",
     "prev": "Previous",
     "next": "Next",
     "quotes": {

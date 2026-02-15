@@ -275,6 +275,11 @@ body {
   -webkit-backdrop-filter: blur(4px);
 }
 
+/* Modale contact : fond noir opaque pour bien détacher le contenu */
+.overlay--modal {
+  background: #000;
+}
+
 /* Menu mobile : couvre toute la page, blur, au-dessus de tout */
 .overlay--menu {
   z-index: 9999;
