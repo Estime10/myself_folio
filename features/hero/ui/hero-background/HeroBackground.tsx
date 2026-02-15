@@ -7,7 +7,7 @@ export function HeroBackground() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url('${HERO_IMAGE_PATH}')` }}
       />
-      <div className="absolute inset-0 bg-black/75" aria-hidden />
+      <div className="absolute inset-0 bg-black/85" aria-hidden />
     </>
   );
 }

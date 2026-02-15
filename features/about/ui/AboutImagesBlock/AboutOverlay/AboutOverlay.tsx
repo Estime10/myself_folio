@@ -122,7 +122,6 @@ export function AboutOverlay({ titleKey, sectionKeys, onClose }: AboutOverlayPro
       aria-modal
       aria-label={t("contact.close")}
       role="dialog"
-      onClick={handleClose}
       onAnimationEnd={handleAnimationEnd}
     >
       <div
