@@ -25,7 +25,9 @@
     "close": "Fermer"
   },
   "testimonials": {
-    "projectNameLabel": "Nom du projet",
+    "projectNameLabel": "Nom du projet :",
+    "prev": "Précédent",
+    "next": "Suivant",
     "quotes": {
       "jikowood": "Estime a parfaitement compris notre vision et l'a transformée en un site clair et professionnel. Il a su traduire notre savoir-faire artisanal en une présence digitale moderne et cohérente avec notre image. La collaboration a été fluide, avec une excellente communication et beaucoup de réactivité. Il a également su nous conseiller sur la structure du site et l'expérience utilisateur. Le résultat correspond exactement à ce que nous voulions.",
       "purpose_sport": "Estime a développé une plateforme pensée pour nos besoins réels sur le terrain. Il comprend rapidement les enjeux fonctionnels et propose des solutions simples et efficaces. Son approche structurée et sa capacité à transformer des idées en fonctionnalités concrètes ont rendu le projet très agréable à construire. Nous avons particulièrement apprécié sa disponibilité et sa capacité d'adaptation tout au long du développement.",

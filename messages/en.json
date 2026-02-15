@@ -25,7 +25,9 @@
     "close": "Close"
   },
   "testimonials": {
-    "projectNameLabel": "Project name",
+    "projectNameLabel": "Project name :",
+    "prev": "Previous",
+    "next": "Next",
     "quotes": {
       "jikowood": "Estime perfectly understood our vision and turned it into a clear, professional website. He was able to translate our craft expertise into a modern digital presence that fits our brand. The collaboration was smooth, with great communication and responsiveness. He also advised us on the site structure and user experience. The result is exactly what we wanted.",
       "purpose_sport": "Estime developed a platform designed for our real needs in the field. He quickly understands functional challenges and proposes simple, effective solutions. His structured approach and ability to turn ideas into concrete features made the project very enjoyable to build. We particularly appreciated his availability and adaptability throughout the development.",
