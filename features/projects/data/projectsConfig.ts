@@ -31,6 +31,6 @@ export const projects: Project[] = [
     name: "Maxwell Jones",
     summaryKey: "maxwellJones.summary",
     tagKeys: ["next", "ts", "gsap", "responsive"],
-    url: "https://maxwelljones.com",
+    url: "https://maxweljones.com",
   },
 ];

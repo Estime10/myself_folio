@@ -1,7 +1,11 @@
+"use client";
+
 import { useTransition } from "react";
+import { useRouter } from "next/navigation";
 import { changeLanguage } from "@/lib/changeLanguage";
 
 export function useLanguage() {
+  const router = useRouter();
   const [isPending, startTransition] = useTransition();
 
   const handleLanguageChange = (locale: string, currentLocale: string) => {
@@ -9,6 +13,7 @@ export function useLanguage() {
 
     startTransition(async () => {
       await changeLanguage(locale);
+      router.refresh();
     });
   };
 
