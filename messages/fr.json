@@ -3,7 +3,8 @@
     "home": "Accueil",
     "projects": "Projets",
     "about": "À propos",
-    "contact": "Contact"
+    "contact": "Contact",
+    "menuClose": "Fermer le menu"
   },
   "navigation": {
     "menu": "Menu"

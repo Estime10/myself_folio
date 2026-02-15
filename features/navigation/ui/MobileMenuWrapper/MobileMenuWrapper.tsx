@@ -1,11 +1,14 @@
 "use client";
 
+import { useEffect } from "react";
 import { AppLink } from "@/components/page-transition";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { navigationItems } from "@/features/navigation";
 import { useNavigation } from "@/features/navigation/hooks/useNavigation";
 import { useMobileMenuAnimation } from "@/features/navigation/hooks/useMobileMenuAnimation";
+
+const BODY_MENU_OPEN_ATTR = "data-menu-open";
 
 export function MobileMenuWrapper() {
   const t = useTranslations("common");
@@ -15,22 +18,33 @@ export function MobileMenuWrapper() {
     isOpen: isMobileMenuOpen,
   });
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.setAttribute(BODY_MENU_OPEN_ATTR, "");
+    } else {
+      document.body.removeAttribute(BODY_MENU_OPEN_ATTR);
+    }
+  }, [isMobileMenuOpen]);
+
   return (
     <>
       <div
         ref={overlayRef}
-        className="overlay lg:hidden"
+        className="overlay overlay--menu lg:hidden"
         onClick={closeMobileMenu}
         aria-hidden
       />
       <div
         ref={panelRef}
-        className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-[min(320px,85vw)] rounded-l-2xl p-6 pt-[calc(1.5rem+env(safe-area-inset-top))] glass-strong lg:hidden"
+        className="fixed inset-0 z-10000 flex w-full items-center justify-center p-6 glass-menu lg:hidden"
         role="dialog"
         aria-modal="true"
         aria-label="Menu de navigation"
       >
-        <nav ref={navRef} className="mt-8 flex flex-col gap-1">
+        <nav
+          ref={navRef}
+          className="flex flex-col items-center justify-center gap-5"
+        >
           {navigationItems.map((item) => {
             const key = item.translationKey.replace("common.", "");
             const isActive = pathname === item.href;

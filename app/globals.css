@@ -92,8 +92,6 @@
   --font-mono: var(--font-jetbrains-mono);
 }
 
-
-
 /* Reset uniquement pour les éléments par défaut, pas tous */
 body,
 h1,
@@ -119,6 +117,41 @@ ol {
 
 button {
   margin: 0;
+}
+
+/* CTA principal : référence unique taille + couleurs (hero, modale, nav mobile) */
+.btn-cta,
+.nav-link-mobile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 12rem; /* largeur fixe identique pour tous les boutons */
+  height: 2.75rem;
+  padding: 0 1.25rem;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 0.5rem;
+  background: var(--accent-primary);
+  border: none;
+  transition: opacity 0.2s ease;
+}
+
+.btn-cta:hover,
+.nav-link-mobile--inactive:hover {
+  opacity: 0.9;
+}
+
+@media (min-width: 1024px) {
+  .btn-cta,
+  .nav-link-mobile {
+    font-size: 1.125rem;
+  }
 }
 
 input,
@@ -181,6 +214,15 @@ body {
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
 }
 
+/* Menu mobile : blur plus marqué */
+.glass-menu {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(48px) saturate(180%);
+  -webkit-backdrop-filter: blur(48px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
 .glass-subtle {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px) saturate(150%);
@@ -233,6 +275,13 @@ body {
   -webkit-backdrop-filter: blur(4px);
 }
 
+/* Menu mobile : couvre toute la page, blur, au-dessus de tout */
+.overlay--menu {
+  z-index: 9999;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
 /* Typo modale contact */
 .modal-text {
   font-size: 1rem;
@@ -245,29 +294,9 @@ body {
   }
 }
 
-/* Liens nav mobile */
-.nav-link-mobile {
-  display: block;
-  padding: 0.75rem 0.5rem;
-  font-size: 1.25rem;
-  font-weight: 500;
-  border-radius: 0.5rem;
-  text-transform: uppercase;
-}
-
+/* Nav mobile : état actif = ring blanc pour distinguer la page courante */
 .nav-link-mobile--active {
-  color: var(--accent-primary);
-}
-
-.nav-link-mobile--inactive {
-  transition: color 0.2s ease, background-color 0.2s ease;
-}
-
-@media (min-width: 1024px) {
-  .nav-link-mobile--inactive:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--accent-primary);
-  }
+  box-shadow: 0 0 0 2px #fff;
 }
 
 /* Liens nav desktop */
@@ -332,4 +361,10 @@ body {
 
 body.page-transition-active .site-header {
   opacity: 0;
+}
+
+/* ----- Menu mobile ouvert : appliqué via data-menu-open sur body ----- */
+body[data-menu-open],
+body[data-menu-open] .layout-root {
+  background: #000 !important;
 }

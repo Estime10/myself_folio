@@ -31,11 +31,9 @@ export default async function RootLayout({ children }: Props) {
       >
         <NextIntlClientProvider messages={messages}>
           <PageTransition>
-            <div className="flex min-h-screen flex-col overflow-hidden">
+            <div className="layout-root flex min-h-screen flex-col">
               <Header />
-              <main className="flex min-h-0 flex-1">
-                {children}
-              </main>
+              <main className="flex min-h-0 flex-1">{children}</main>
             </div>
           </PageTransition>
         </NextIntlClientProvider>

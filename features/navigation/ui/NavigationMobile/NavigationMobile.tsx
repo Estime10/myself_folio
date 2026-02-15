@@ -7,7 +7,7 @@ export function NavigationMobile() {
   return (
     <NavigationProvider>
       <nav className="lg:hidden" aria-label="Navigation mobile">
-        <div className="flex w-full items-center justify-between py-4">
+        <div className="relative z-10001 flex w-full items-center justify-between py-4">
           <p className="font-bold text-2xl uppercase">{SITE_NAME}</p>
           <MobileMenuButton />
         </div>
