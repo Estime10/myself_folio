@@ -1,4 +1,4 @@
-export type ProjectId = "jikowood" | "purpose-sport" | "maxwelljones";
+export type ProjectId = "jikowood" | "purpose-sport" | "maxweljones";
 
 export type Project = {
   id: ProjectId;
@@ -27,9 +27,9 @@ export const projects: Project[] = [
     url: "https://www.purpose-sport.com/",
   },
   {
-    id: "maxwelljones",
-    name: "Maxwell Jones",
-    summaryKey: "maxwellJones.summary",
+    id: "maxweljones",
+    name: "Maxwel Jones",
+    summaryKey: "maxweljones.summary",
     tagKeys: ["next", "ts", "gsap", "responsive"],
     url: "https://maxweljones.com",
   },

@@ -44,7 +44,7 @@ export function TestimonialsSlide({
         </div>
       </Container>
 
-      <Container className="absolute bottom-24 left-0 right-0 z-10 md:bottom-28">
+      <Container className="absolute bottom-24 left-0 right-0 z-10 md:bottom-11">
         <blockquote className="max-w-2xl text-base leading-relaxed text-text-secondary/90 md:text-lg">
           &ldquo;{quoteText}&rdquo;
         </blockquote>

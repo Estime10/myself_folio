@@ -40,7 +40,7 @@ export function TestimonialsArrows({
         </button>
       </div>
 
-      <div className="absolute bottom-24 right-0 left-0 z-20 hidden min-[1022px]:block md:bottom-28">
+      <div className="absolute bottom-24 right-0 left-0 z-20 hidden min-[1022px]:block md:bottom-11">
         <Container className="flex items-center justify-end gap-3">
           <button
             type="button"
