@@ -14,12 +14,15 @@ type Props = {
 };
 
 export const metadata: Metadata = {
-  title: "Portfolio — Developer Control Room",
-  description: "Portfolio senior — Vision, ADN & Design System",
+  title: "Portfolio — Dev DNA",
+  description: "Portfolio — Tech, Style & Product Vision",
 };
 
 export default async function RootLayout({ children }: Props) {
-  const [messages, locale] = await Promise.all([getMessages(), getUserLocale()]);
+  const [messages, locale] = await Promise.all([
+    getMessages(),
+    getUserLocale(),
+  ]);
 
   return (
     <html lang={locale}>
