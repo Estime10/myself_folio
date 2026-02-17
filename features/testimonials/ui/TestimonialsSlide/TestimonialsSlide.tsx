@@ -33,9 +33,9 @@ export function TestimonialsSlide({
       </div>
       <div className="absolute inset-0 bg-black/90" aria-hidden />
 
-      {/* Image centrée au milieu (même src que le bg), entre titre et citation */}
+      {/* Image centrée au milieu (même src que le bg), entre titre et citation — masquée en mobile */}
       <div
-        className="absolute inset-0 z-10 flex items-center justify-center px-4"
+        className="absolute inset-0 z-10 hidden items-center justify-center px-4 md:flex"
         aria-hidden
       >
         <div className="relative h-[min(45vh,320px)] w-[min(75vw,420px)] overflow-hidden rounded-2xl shadow-2xl">
