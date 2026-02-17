@@ -12,7 +12,7 @@ export function AboutImageCard({ image, title, onOpen }: AboutImageCardProps) {
   return (
     <button
       type="button"
-      className="group relative h-full flex-1 min-w-0 rounded-t-2xl overflow-hidden bg-black/20 cursor-pointer border-0 p-0 text-left"
+      className="group relative h-full flex-1 min-w-0 rounded-2xl overflow-hidden bg-black/20 cursor-pointer border-0 p-0 text-left"
       onClick={onOpen}
     >
       <Image
@@ -23,7 +23,7 @@ export function AboutImageCard({ image, title, onOpen }: AboutImageCardProps) {
         sizes="100%"
       />
       <div
-        className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center rounded-t-2xl bg-black/0 transition-colors duration-200 lg:group-hover:bg-black/50 lg:group-hover:backdrop-blur-sm"
+        className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center rounded-2xl bg-black/0 transition-colors duration-200 lg:group-hover:bg-black/50 lg:group-hover:backdrop-blur-sm"
         aria-hidden
       >
         <span className="text-lg font-semibold uppercase tracking-wide text-white opacity-0 transition-opacity duration-200 lg:group-hover:opacity-100">
