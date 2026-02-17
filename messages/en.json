@@ -24,8 +24,11 @@
     "sectionTitle": "Let's connect",
     "sectionIntro": "Email, LinkedIn or Instagram — choose your channel.",
     "email": "Email",
+    "emailPhrase": "For projects and pro collaborations.",
     "linkedin": "LinkedIn",
+    "linkedinPhrase": "Pro, network and opportunities.",
     "instagram": "Instagram",
+    "instagramPhrase": "Creative work and behind the scenes.",
     "close": "Close"
   },
   "testimonials": {

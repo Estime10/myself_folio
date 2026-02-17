@@ -21,6 +21,7 @@ const mockLinks: ContactLinkItem[] = [
   {
     id: "email",
     label: "Email",
+    phrase: "Pour les projets pro.",
     href: "mailto:test@example.com",
     external: false,
     Icon: mockIcon,
@@ -28,6 +29,7 @@ const mockLinks: ContactLinkItem[] = [
   {
     id: "linkedin",
     label: "LinkedIn",
+    phrase: "Réseau pro.",
     href: "https://linkedin.com/in/test",
     external: true,
     Icon: mockIcon,

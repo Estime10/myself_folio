@@ -24,8 +24,11 @@
     "sectionTitle": "On se connecte ?",
     "sectionIntro": "Email, LinkedIn ou Instagram — à vous de choisir.",
     "email": "Email",
+    "emailPhrase": "Pour les projets et collaborations pro.",
     "linkedin": "LinkedIn",
+    "linkedinPhrase": "Pro, réseau et opportunités.",
     "instagram": "Instagram",
+    "instagramPhrase": "Créatif et coulisses.",
     "close": "Fermer"
   },
   "testimonials": {
