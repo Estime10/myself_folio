@@ -32,9 +32,12 @@ export function AboutCardsGrid({ items, onCardClick }: AboutCardsGridProps) {
             className="absolute inset-0 z-10 flex items-center justify-center rounded-2xl bg-black/60 backdrop-blur-[2px] pointer-events-none"
             aria-hidden
           >
-            <span className="text-center text-lg font-semibold uppercase tracking-wide text-white">
-              {t(item.titleKey)}
-            </span>
+            <span
+            className="text-center text-lg font-semibold uppercase tracking-wide"
+            style={{ color: "var(--accent-primary)" }}
+          >
+            {t(item.titleKey)}
+          </span>
           </div>
         </button>
       ))}

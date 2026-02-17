@@ -27,7 +27,7 @@ export function AboutOverlayShell({
 }: AboutOverlayShellProps) {
   return (
     <div
-      className={`about-overlay fixed inset-0 z-[9998] bg-black/30 backdrop-blur-md ${isClosing ? "about-overlay--closing" : ""}`}
+      className={`about-overlay fixed inset-0 z-9998 bg-black/30 backdrop-blur-md ${isClosing ? "about-overlay--closing" : ""}`}
       aria-modal
       role="dialog"
       aria-label={ariaLabel ?? title}
