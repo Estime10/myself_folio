@@ -20,7 +20,7 @@ export async function ProjectsSection() {
   }));
 
   return (
-    <section className="py-12 md:py-16 lg:py-20">
+    <section className="py-12 md:py-16 lg:flex lg:min-h-0 lg:flex-1 lg:flex-col lg:justify-center lg:py-20">
       <Container>
         <SectionHeader
           eyebrow={tProjects("sectionEyebrow")}
