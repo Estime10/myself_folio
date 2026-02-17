@@ -10,9 +10,7 @@ export async function AboutSection() {
   const t = await getTranslations("about");
 
   return (
-    <section className="relative flex w-full flex-col min-h-full min-[1220px]:flex-1 lg:overflow-hidden">
-      {/* Spacer : uniquement à partir de 1220px pour pousser le bloc cartes vers le bas */}
-      <div className="min-h-0 min-[1220px]:flex-1" />
+    <section className="relative flex w-full flex-col min-h-full min-[1220px]:flex-1 min-[1220px]:justify-center lg:overflow-hidden">
       {/* Titre : toujours visible (mobile + desktop), dégagé du header en mobile */}
       <Container className="mb-4 pt-10 min-[1220px]:pt-0 xl:mb-8">
         <SectionHeader

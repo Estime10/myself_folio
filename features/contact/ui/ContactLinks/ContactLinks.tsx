@@ -7,6 +7,7 @@ type IconComponent = React.ComponentType<{ className?: string; "aria-hidden"?: b
 export type ContactLinkItem = {
   id: "email" | "linkedin" | "instagram";
   label: string;
+  phrase: string;
   href: string;
   external: boolean;
   Icon: IconComponent;
@@ -48,19 +49,22 @@ type ContactLinksProps = {
 
 export function ContactLinks({ links, onLinkClick }: ContactLinksProps) {
   return (
-    <ul className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:gap-6">
-      {links.map(({ id, label, href, external, Icon }) => {
+    <ul className="flex flex-col gap-5 lg:flex-row lg:flex-wrap lg:gap-6">
+      {links.map(({ id, label, phrase, href, external, Icon }) => {
         const className =
-          "group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 px-6 py-5 transition-all duration-200 hover:border-white/20 hover:bg-white/10 hover:shadow-lg hover:shadow-black/20 sm:min-w-[240px] sm:flex-1";
+          "group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 px-6 py-5 transition-all duration-200 hover:border-white/20 hover:bg-white/10 hover:shadow-lg hover:shadow-black/20 lg:w-[380px] lg:shrink-0";
 
         const content = (
           <>
             <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-accent-primary transition-colors group-hover:border-white/20 group-hover:bg-white/10">
               <Icon className="h-6 w-6" aria-hidden />
             </span>
-            <span className="text-lg font-semibold text-text-primary">
-              {label}
-            </span>
+            <div className="flex min-w-0 flex-1 flex-col gap-1">
+              <span className="text-lg font-semibold text-text-primary">
+                {label}
+              </span>
+              <span className="text-sm text-text-secondary/80">{phrase}</span>
+            </div>
           </>
         );
 
@@ -108,6 +112,7 @@ export function getContactLinks(translate: (key: string) => string): ContactLink
     {
       id: "email",
       label: translate("email"),
+      phrase: translate("emailPhrase"),
       href: contactLinks.email,
       external: false,
       Icon: CONTACT_ICONS.email,
@@ -115,6 +120,7 @@ export function getContactLinks(translate: (key: string) => string): ContactLink
     {
       id: "linkedin",
       label: translate("linkedin"),
+      phrase: translate("linkedinPhrase"),
       href: contactLinks.linkedin,
       external: true,
       Icon: CONTACT_ICONS.linkedin,
@@ -122,6 +128,7 @@ export function getContactLinks(translate: (key: string) => string): ContactLink
     {
       id: "instagram",
       label: translate("instagram"),
+      phrase: translate("instagramPhrase"),
       href: contactLinks.instagram,
       external: true,
       Icon: CONTACT_ICONS.instagram,

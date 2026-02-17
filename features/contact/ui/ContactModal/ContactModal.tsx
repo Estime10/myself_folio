@@ -96,7 +96,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       />
       <div
         ref={panelRef}
-        className="modal-text fixed left-1/2 top-1/2 z-50 w-full max-w-[min(360px,90vw)] -translate-x-1/2 -translate-y-1/2 rounded-2xl p-6 shadow-xl glass-strong opacity-0 pointer-events-none"
+        className="modal-text fixed left-1/2 top-1/2 z-50 w-full max-w-[min(360px,90vw)] lg:max-w-[425px] -translate-x-1/2 -translate-y-1/2 rounded-2xl p-6 shadow-xl glass-strong opacity-0 pointer-events-none"
         role="dialog"
         aria-modal="true"
         aria-label={t("title")}

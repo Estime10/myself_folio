@@ -24,8 +24,11 @@
     "sectionTitle": "On se connecte ?",
     "sectionIntro": "Email, LinkedIn ou Instagram — à vous de choisir.",
     "email": "Email",
+    "emailPhrase": "Pour les projets et collaborations pro.",
     "linkedin": "LinkedIn",
+    "linkedinPhrase": "Pro, réseau et opportunités.",
     "instagram": "Instagram",
+    "instagramPhrase": "Créatif et coulisses.",
     "close": "Fermer"
   },
   "testimonials": {
@@ -52,7 +55,7 @@
       "summary": "Site vitrine développé avec Next.js et TypeScript pour une agence de recrutement de basket, avec galerie d’images et de vidéos dynamique et interactive. La plateforme a contribué à une croissance de 3 % de l’activité sur un an.",
       "role": "Architecture produit, UX et intégration front-end"
     },
-    "maxwellJones": {
+    "maxweljones": {
       "summary": "Site corporate développé avec Next.js et TypeScript pour une holding. une page dynamique : réseau stratégique. un call booking pour permettre aux clients de réserver un appel avec les consultants.",
       "role": "Stratégie produit, direction UX/UI et livraison front-end"
     }

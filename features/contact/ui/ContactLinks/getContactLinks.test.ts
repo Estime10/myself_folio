@@ -11,14 +11,17 @@ describe("getContactLinks", () => {
     expect(links.map((l) => l.id)).toEqual(["email", "linkedin", "instagram"]);
   });
 
-  it("appelle translate avec les clés email, linkedin, instagram", () => {
+  it("appelle translate avec les clés label et phrase pour chaque lien", () => {
     const translate = vi.fn((key: string) => key);
     getContactLinks(translate);
 
-    expect(translate).toHaveBeenCalledTimes(3);
+    expect(translate).toHaveBeenCalledTimes(6);
     expect(translate).toHaveBeenCalledWith("email");
+    expect(translate).toHaveBeenCalledWith("emailPhrase");
     expect(translate).toHaveBeenCalledWith("linkedin");
+    expect(translate).toHaveBeenCalledWith("linkedinPhrase");
     expect(translate).toHaveBeenCalledWith("instagram");
+    expect(translate).toHaveBeenCalledWith("instagramPhrase");
   });
 
   it("utilise les href de contactLinks", () => {

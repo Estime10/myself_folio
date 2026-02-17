@@ -24,8 +24,11 @@
     "sectionTitle": "Let's connect",
     "sectionIntro": "Email, LinkedIn or Instagram — choose your channel.",
     "email": "Email",
+    "emailPhrase": "For projects and pro collaborations.",
     "linkedin": "LinkedIn",
+    "linkedinPhrase": "Pro, network and opportunities.",
     "instagram": "Instagram",
+    "instagramPhrase": "Creative work and behind the scenes.",
     "close": "Close"
   },
   "testimonials": {
@@ -52,7 +55,7 @@
       "summary": "Showcase website built with Next.js, TypeScript, for a basketball recruiting agency, featuring a dynamic and interactive image and video gallery. The platform contributed to a 3% growth in business activity over one year.",
       "role": "Product architecture, UX and front-end integration"
     },
-    "maxwellJones": {
+    "maxweljones": {
       "summary": "Corporate website built with Next.js and TypeScript for a holding company. a dynamic page: strategic network. a call booking to allow clients to book a call with the consultants.",
       "role": "Product strategy, UX/UI direction and front-end delivery"
     }
