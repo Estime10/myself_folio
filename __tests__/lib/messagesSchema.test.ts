@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { validateMessages } from "./messagesSchema";
+import { validateMessages } from "@/lib/messagesSchema";
 
 describe("validateMessages", () => {
   it("valide la structure minimale des messages", () => {

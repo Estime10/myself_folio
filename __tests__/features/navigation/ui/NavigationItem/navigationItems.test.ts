@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { navigationItems } from "./navigationItems";
+import { navigationItems } from "@/features/navigation/ui/NavigationItem/navigationItems";
 
 describe("navigationItems", () => {
   it("contient 5 entrées", () => {

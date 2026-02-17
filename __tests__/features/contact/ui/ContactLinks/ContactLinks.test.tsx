@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent, within } from "@testing-library/react";
-import { ContactLinks } from "./ContactLinks";
-import type { ContactLinkItem } from "./ContactLinks";
+import { ContactLinks } from "@/features/contact/ui/ContactLinks/ContactLinks";
+import type { ContactLinkItem } from "@/features/contact/ui/ContactLinks/ContactLinks";
 
 vi.mock("next/link", () => ({
   default: ({

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { getContactLinks } from "./ContactLinks";
+import { getContactLinks } from "@/features/contact/ui/ContactLinks/ContactLinks";
 import { contactLinks } from "@/lib/config/contact";
 
 describe("getContactLinks", () => {

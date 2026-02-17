@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { HeroText } from "./HeroText";
+import { HeroText } from "@/features/hero/ui/hero-text/HeroText";
 
 describe("HeroText", () => {
   it("affiche l'eyebrow", () => {
