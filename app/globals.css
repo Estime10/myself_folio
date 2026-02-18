@@ -32,9 +32,17 @@
   --text-secondary: #a1a6c3;
   --text-muted: #6f7390;
 
-  /* Accents - RGBA for modern transparency */
-  --accent-primary: rgba(255, 122, 24, 0.9);
-  --accent-primary-hover: rgba(255, 122, 24, 1);
+  /* Gradient CTA / card header — référence unique (boutons, nav mobile, card header) */
+  --cta-gradient: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 122, 24, 0.2),
+    rgba(0, 0, 0, 0.6)
+  );
+
+  /* Accents - couleur unifiée pour textes, nav, language-toggle, tous les accent-primary */
+  --accent-primary: var(--cta-gradient);
+  --accent-primary-hover: var(--cta-gradient);
   --accent-danger: rgba(229, 72, 77, 0.9);
   --accent-danger-hover: rgba(229, 72, 77, 1);
   --accent-info: rgba(76, 111, 255, 0.9);
@@ -119,7 +127,7 @@ button {
   margin: 0;
 }
 
-/* CTA principal : référence unique taille + couleurs (hero, modale, nav mobile) */
+/* CTA principal : gradient unique (hero, modale, nav mobile) */
 .btn-cta,
 .nav-link-mobile {
   display: inline-flex;
@@ -137,14 +145,9 @@ button {
   text-decoration: none;
   white-space: nowrap;
   border-radius: 0.5rem;
-  background: var(--accent-primary);
-  border: none;
+  background: var(--cta-gradient);
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
   transition: opacity 0.2s ease;
-}
-
-.btn-cta:hover,
-.nav-link-mobile--inactive:hover {
-  opacity: 0.9;
 }
 
 @media (min-width: 1024px) {
@@ -152,6 +155,11 @@ button {
   .nav-link-mobile {
     font-size: 1.125rem;
   }
+}
+
+.btn-cta:hover,
+.nav-link-mobile--inactive:hover {
+  opacity: 0.9;
 }
 
 input,
@@ -280,9 +288,10 @@ body {
   background: #000;
 }
 
-/* Menu mobile : couvre toute la page, blur, au-dessus de tout */
+/* Menu mobile : fond très foncé, blur, au-dessus de tout */
 .overlay--menu {
   z-index: 9999;
+  background: rgba(0, 0, 0, 0.99);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
@@ -330,7 +339,7 @@ body {
 }
 
 .nav-link-desktop--active {
-  color: var(--accent-primary);
+  color: black !important;
 }
 
 .nav-link-desktop--inactive {
@@ -339,7 +348,7 @@ body {
 
 @media (min-width: 1024px) {
   .nav-link-desktop--inactive:hover {
-    color: var(--accent-primary);
+    color: black !important;
   }
 }
 
@@ -448,10 +457,5 @@ body[data-menu-open] .layout-root {
 }
 
 .card-header-gradient {
-  background: linear-gradient(
-    to bottom right,
-    rgba(255, 255, 255, 0.08),
-    rgba(255, 122, 24, 0.2),
-    rgba(0, 0, 0, 0.6)
-  );
+  background: var(--cta-gradient);
 }
