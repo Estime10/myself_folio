@@ -18,7 +18,7 @@ export const testimonialsBgConfig: TestimonialBgItem[] = [
     id: "photo_vibes",
     src: "/image/sc/pvbs.webp",
     title: "Photo Vibes by Shana",
-    site: "https://photovibes-by-shana.vercel.app",
+    site: "https://photovibesbyshana.vercel.app",
   },
   {
     id: "enna_consulting",
