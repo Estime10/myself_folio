@@ -3,6 +3,7 @@
 import gsap from "gsap";
 import { useTranslations } from "next-intl";
 import { useRef, useEffect, useLayoutEffect } from "react";
+import { usePrefersReducedMotion } from "@/lib/hooks/usePrefersReducedMotion";
 import { ContactLinks, getContactLinks } from "../ContactLinks/ContactLinks";
 
 type ContactModalProps = {
@@ -12,6 +13,7 @@ type ContactModalProps = {
 
 export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const t = useTranslations("contact");
+  const reducedMotion = usePrefersReducedMotion();
   const overlayRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
 
@@ -29,7 +31,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     const panel = panelRef.current;
     if (!overlay || !panel) return;
 
-    const duration = 0.3;
+    const duration = reducedMotion ? 0.01 : 0.3;
     const ease = "power3.out";
 
     const tl = gsap.timeline();
@@ -82,7 +84,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
           document.body.style.overflow = "";
         });
     }
-  }, [isOpen]);
+  }, [isOpen, reducedMotion]);
 
   const links = getContactLinks((key) => t(key));
 

@@ -60,7 +60,7 @@ export function SliceOverlay({
 
   return (
     <div
-      className="page-slice-overlay fixed inset-0 z-[100] grid grid-rows-[repeat(8,1fr)] pointer-events-auto"
+      className="page-slice-overlay fixed inset-0 z-100 grid grid-rows-[repeat(8,1fr)] pointer-events-auto"
       aria-hidden
     >
       {Array.from({ length: STRIP_COUNT }, (_, i) => (
@@ -70,7 +70,6 @@ export function SliceOverlay({
               stripRefs.current[i] = el;
             }}
             className="h-full w-full page-slice-strip"
-            style={{ background: "var(--bg-primary)" }}
           />
         </div>
       ))}

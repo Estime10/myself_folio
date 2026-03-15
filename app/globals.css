@@ -239,6 +239,19 @@ body {
   box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
+/* Accent gradient pour textes (titres cartes About, etc.) */
+.text-accent-primary {
+  background: var(--accent-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Bande de la transition de page (SliceOverlay) */
+.page-slice-strip {
+  background: var(--bg-primary);
+}
+
 /* Utility classes pour safe-area */
 .safe-area-top {
   padding-top: var(--safe-area-inset-top);
@@ -339,7 +352,7 @@ body {
 }
 
 .nav-link-desktop--active {
-  color: black !important;
+  color: rgb(152, 152, 152) !important;
 }
 
 .nav-link-desktop--inactive {
@@ -348,7 +361,7 @@ body {
 
 @media (min-width: 1024px) {
   .nav-link-desktop--inactive:hover {
-    color: black !important;
+    color: rgb(152, 152, 152) !important;
   }
 }
 

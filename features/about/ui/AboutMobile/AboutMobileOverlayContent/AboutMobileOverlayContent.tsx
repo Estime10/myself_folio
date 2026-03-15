@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import gsap from "gsap";
+import { usePrefersReducedMotion } from "@/lib/hooks/usePrefersReducedMotion";
 import type { AboutItemConfig } from "../../../data/aboutConfig";
 import { ABOUT_OVERLAY_ANIMATION } from "../../../data/aboutOverlayAnimationConfig";
 import { AboutOverlayCard } from "../../AboutShared/AboutOverlayCard/AboutOverlayCard";
@@ -25,6 +26,7 @@ export function AboutMobileOverlayContent({
   isClosing,
 }: AboutMobileOverlayContentProps) {
   const t = useTranslations();
+  const reducedMotion = usePrefersReducedMotion();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const bar1Ref = useRef<HTMLDivElement>(null);
   const bar2Ref = useRef<HTMLDivElement>(null);
@@ -58,6 +60,10 @@ export function AboutMobileOverlayContent({
     const { bar: barConfig, card: cardConfig } = ABOUT_OVERLAY_ANIMATION;
     const ease = barConfig.ease;
 
+    const barDuration = reducedMotion ? 0 : MOBILE_BAR_DURATION;
+    const cardDuration = reducedMotion ? 0 : MOBILE_CARD_DURATION;
+    const scrollDuration = reducedMotion ? 0 : SCROLL_DURATION;
+
     gsap.set([bar1, bar2, bar3], { scaleY: 0 });
     gsap.set([card1, card2, card3], { opacity: 0, y: 8 });
 
@@ -77,7 +83,7 @@ export function AboutMobileOverlayContent({
       const target = getScrollTarget(el);
       return gsap.to(container, {
         scrollTop: target,
-        duration: SCROLL_DURATION,
+        duration: scrollDuration,
         ease: "power2.inOut",
       });
     };
@@ -85,33 +91,33 @@ export function AboutMobileOverlayContent({
     const pause = (duration: number) => gsap.to({}, { duration });
 
     const tl = gsap.timeline({ overwrite: true });
-    tl.to(bar1, { scaleY: 1, duration: MOBILE_BAR_DURATION, ease })
-      .to(card1, { opacity: 1, y: 0, duration: MOBILE_CARD_DURATION, ease: cardConfig.ease })
+    tl.to(bar1, { scaleY: 1, duration: barDuration, ease })
+      .to(card1, { opacity: 1, y: 0, duration: cardDuration, ease: cardConfig.ease })
       .add(() => {
         scrollToEl(bar2);
       })
-      .add(pause(SCROLL_DURATION))
-      .to(bar2, { scaleY: 1, duration: MOBILE_BAR_DURATION, ease })
+      .add(pause(scrollDuration))
+      .to(bar2, { scaleY: 1, duration: barDuration, ease })
       .add(() => {
         scrollToEl(card2);
       })
-      .add(pause(SCROLL_DURATION))
-      .to(card2, { opacity: 1, y: 0, duration: MOBILE_CARD_DURATION, ease: cardConfig.ease })
+      .add(pause(scrollDuration))
+      .to(card2, { opacity: 1, y: 0, duration: cardDuration, ease: cardConfig.ease })
       .add(() => {
         scrollToEl(bar3);
       })
-      .add(pause(SCROLL_DURATION))
-      .to(bar3, { scaleY: 1, duration: MOBILE_BAR_DURATION, ease })
+      .add(pause(scrollDuration))
+      .to(bar3, { scaleY: 1, duration: barDuration, ease })
       .add(() => {
         scrollToEl(card3);
       })
-      .add(pause(SCROLL_DURATION))
-      .to(card3, { opacity: 1, y: 0, duration: MOBILE_CARD_DURATION, ease: cardConfig.ease })
+      .add(pause(scrollDuration))
+      .to(card3, { opacity: 1, y: 0, duration: cardDuration, ease: cardConfig.ease })
       .add(() => {
         scrollToEl(card3);
       })
-      .add(pause(SCROLL_DURATION));
-  }, [isOpen, isClosing]);
+      .add(pause(scrollDuration));
+  }, [isOpen, isClosing, reducedMotion]);
 
   return (
     <div

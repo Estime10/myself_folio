@@ -19,22 +19,31 @@ type UseAboutOverlayRevealAnimationArgs = {
   refs: AboutOverlayRefs;
   isClosing: boolean;
   sectionKeys: [string, string, string];
+  reducedMotion: boolean;
 };
 
 /**
  * Lance la timeline GSAP de révélation (lignes + barres + cartes) de l’overlay About.
  * Ne fait rien si isClosing ou si les refs ne sont pas encore montées.
+ * Respecte prefers-reduced-motion : durées à 0 si reducedMotion.
  */
 export function useAboutOverlayRevealAnimation({
   refs,
   isClosing,
   sectionKeys,
+  reducedMotion,
 }: UseAboutOverlayRevealAnimationArgs): void {
   const {
     line: lineConfig,
     bar: barConfig,
     card: cardConfig,
   } = ABOUT_OVERLAY_ANIMATION;
+
+  const lineDuration = reducedMotion ? 0 : lineConfig.duration;
+  const barDuration = reducedMotion ? 0 : barConfig.duration;
+  const cardDuration = reducedMotion ? 0 : cardConfig.duration;
+  const lineDelay = reducedMotion ? 0 : lineConfig.delay;
+  const cardOverlap = reducedMotion ? 0 : cardConfig.overlap;
 
   useEffect(() => {
     const vertical = refs.vertical.current;
@@ -68,18 +77,18 @@ export function useAboutOverlayRevealAnimation({
     const tl = gsap.timeline({ overwrite: true });
     tl.to(vertical, {
       scaleY: 1,
-      duration: lineConfig.duration,
-      delay: lineConfig.delay,
+      duration: lineDuration,
+      delay: lineDelay,
       ease: lineConfig.ease,
     })
       .to(horizontal, {
         scaleX: 1,
-        duration: lineConfig.duration,
+        duration: lineDuration,
         ease: lineConfig.ease,
       })
       .to(barLeft, {
         scaleY: 1,
-        duration: barConfig.duration,
+        duration: barDuration,
         ease: barConfig.ease,
       })
       .to(
@@ -87,14 +96,14 @@ export function useAboutOverlayRevealAnimation({
         {
           opacity: 1,
           y: 0,
-          duration: cardConfig.duration,
+          duration: cardDuration,
           ease: cardConfig.ease,
         },
-        `-=${cardConfig.overlap}`
+        cardOverlap > 0 ? `-=${cardOverlap}` : 0
       )
       .to(barCenter, {
         scaleY: 1,
-        duration: barConfig.duration,
+        duration: barDuration,
         ease: barConfig.ease,
       })
       .to(
@@ -102,14 +111,14 @@ export function useAboutOverlayRevealAnimation({
         {
           opacity: 1,
           y: 0,
-          duration: cardConfig.duration,
+          duration: cardDuration,
           ease: cardConfig.ease,
         },
-        `-=${cardConfig.overlap}`
+        cardOverlap > 0 ? `-=${cardOverlap}` : 0
       )
       .to(barRight, {
         scaleY: 1,
-        duration: barConfig.duration,
+        duration: barDuration,
         ease: barConfig.ease,
       })
       .to(
@@ -117,11 +126,11 @@ export function useAboutOverlayRevealAnimation({
         {
           opacity: 1,
           y: 0,
-          duration: cardConfig.duration,
+          duration: cardDuration,
           ease: cardConfig.ease,
         },
-        `-=${cardConfig.overlap}`
+        cardOverlap > 0 ? `-=${cardOverlap}` : 0
       );
     // eslint-disable-next-line react-hooks/exhaustive-deps -- config stable (ABOUT_OVERLAY_ANIMATION)
-  }, [refs, isClosing, sectionKeys]);
+  }, [refs, isClosing, sectionKeys, reducedMotion]);
 }

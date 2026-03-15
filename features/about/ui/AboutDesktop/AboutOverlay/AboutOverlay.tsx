@@ -2,6 +2,7 @@
 
 import { useRef, useMemo } from "react";
 import { useTranslations } from "next-intl";
+import { usePrefersReducedMotion } from "@/lib/hooks/usePrefersReducedMotion";
 import { AboutOverlayCard } from "../../AboutShared/AboutOverlayCard/AboutOverlayCard";
 import { AboutOverlayShell } from "../../AboutShared/AboutOverlayShell/AboutOverlayShell";
 import { useAboutOverlayRevealAnimation } from "../../../hooks/useAboutOverlayRevealAnimation";
@@ -25,6 +26,7 @@ export function AboutOverlay({
   handleAnimationEnd,
 }: AboutOverlayProps) {
   const t = useTranslations();
+  const reducedMotion = usePrefersReducedMotion();
   const closeLabel = t("contact.close");
 
   const verticalLineRef = useRef<HTMLDivElement>(null);
@@ -50,7 +52,12 @@ export function AboutOverlay({
     []
   );
 
-  useAboutOverlayRevealAnimation({ refs, isClosing, sectionKeys });
+  useAboutOverlayRevealAnimation({
+    refs,
+    isClosing,
+    sectionKeys,
+    reducedMotion,
+  });
 
   return (
     <AboutOverlayShell
@@ -64,29 +71,29 @@ export function AboutOverlay({
     >
       <div
         ref={verticalLineRef}
-        className="absolute left-1/2 top-14 z-[9] h-[calc(28vh-20px)] w-0.5 -translate-x-1/2 origin-top bg-white/40"
+        className="absolute left-1/2 top-14 z-9 h-[calc(28vh-20px)] w-0.5 -translate-x-1/2 origin-top bg-white/40"
         aria-hidden
       />
       <div
         ref={horizontalLineRef}
-        className="absolute left-[235px] right-[235px] top-[calc(3.5rem+28vh-20px)] z-[9] h-0.5 -translate-y-1/2 origin-center bg-white/40"
+        className="absolute left-[235px] right-[235px] top-[calc(3.5rem+28vh-20px)] z-9 h-0.5 -translate-y-1/2 origin-center bg-white/40"
         aria-hidden
       />
       <div
         ref={barLeftRef}
-        className="absolute left-[235px] top-[calc(3.5rem+28vh-20px)] z-[9] w-0.5 -translate-x-1/2 origin-top bg-white/40"
+        className="absolute left-[235px] top-[calc(3.5rem+28vh-20px)] z-9 w-0.5 -translate-x-1/2 origin-top bg-white/40"
         style={{ height: BAR_HEIGHT }}
         aria-hidden
       />
       <div
         ref={barCenterRef}
-        className="absolute left-1/2 top-[calc(3.5rem+28vh-20px)] z-[9] w-0.5 -translate-x-1/2 origin-top bg-white/40"
+        className="absolute left-1/2 top-[calc(3.5rem+28vh-20px)] z-9 w-0.5 -translate-x-1/2 origin-top bg-white/40"
         style={{ height: BAR_HEIGHT }}
         aria-hidden
       />
       <div
         ref={barRightRef}
-        className="absolute right-[235px] top-[calc(3.5rem+28vh-20px)] z-[9] w-0.5 -translate-x-1/2 origin-top bg-white/40"
+        className="absolute right-[235px] top-[calc(3.5rem+28vh-20px)] z-9 w-0.5 -translate-x-1/2 origin-top bg-white/40"
         style={{ height: BAR_HEIGHT }}
         aria-hidden
       />

@@ -26,10 +26,7 @@ export function AboutImageCard({ image, title, onOpen }: AboutImageCardProps) {
         className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center rounded-2xl bg-black/0 transition-colors duration-200 lg:group-hover:bg-black/50 lg:group-hover:backdrop-blur-sm"
         aria-hidden
       >
-        <span
-          className="text-lg font-semibold uppercase tracking-wide opacity-0 transition-opacity duration-200 lg:group-hover:opacity-100"
-          style={{ color: "var(--accent-primary)" }}
-        >
+        <span className="text-lg font-semibold uppercase tracking-wide opacity-0 transition-opacity duration-200 lg:group-hover:opacity-100 text-accent-primary">
           {title}
         </span>
       </div>

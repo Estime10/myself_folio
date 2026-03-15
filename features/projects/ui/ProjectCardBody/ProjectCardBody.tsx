@@ -13,9 +13,7 @@ export function ProjectCardBody({ project }: ProjectCardBodyProps) {
           {project.summary}
         </p>
       </div>
-      <div
-        className="tag-text mt-3 flex flex-wrap justify-center gap-2 uppercase tracking-[0.18em] text-text-secondary/75"
-      >
+      <div className="tag-text mt-3 flex flex-wrap justify-center gap-2 uppercase tracking-[0.18em] text-text-secondary/75">
         {project.tags.map((tag) => (
           <span
             key={tag}
