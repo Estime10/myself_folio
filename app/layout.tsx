@@ -8,7 +8,8 @@ import { PageTransition } from "@/components/page-transition";
 import { Header, HeaderScrollEffect } from "@/features/navigation";
 import { HeroBackground } from "@/features/hero/ui/hero-background/HeroBackground";
 
-type Props = {
+/** Props du layout racine. En cas de segment dynamique (ex. [locale]), ajouter params: Promise<{ locale: string }>. */
+type RootLayoutProps = {
   children: React.ReactNode;
 };
 
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   description: "Portfolio — Tech, Style & Product Vision",
 };
 
-export default async function RootLayout({ children }: Props) {
+export default async function RootLayout({ children }: RootLayoutProps) {
   const [messages, locale] = await Promise.all([
     getMessages(),
     getUserLocale(),

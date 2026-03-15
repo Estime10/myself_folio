@@ -56,12 +56,9 @@ Analyse réalisée en tant que développeur React/Next.js senior, au regard des 
 
 ---
 
-### 2.4 Layout Next.js et typage des props
+### 2.4 Layout Next.js et typage des props — fait
 
-- **Root layout** : `RootLayout({ children }: Props)` ne déclare pas les types officiels Next.js pour le layout (ex. `params`, `searchParams` si un jour utilisés). Pour un layout racine sans segment dynamique, c’est acceptable.
-- Si vous ajoutez plus tard un segment `[locale]` ou des params, typer explicitement avec les types fournis par Next.js pour éviter tout flou.
-
-**Priorité** : basse tant que le layout reste simple.
+- **Fait** : type `RootLayoutProps` explicite dans `app/layout.tsx` avec JSDoc indiquant comment ajouter `params` en cas de segment dynamique (ex. `[locale]`).
 
 ---
 
@@ -90,13 +87,9 @@ Analyse réalisée en tant que développeur React/Next.js senior, au regard des 
 
 ---
 
-### 2.8 Animations — Framer Motion vs GSAP
+### 2.8 Animations — Framer Motion vs GSAP — documenté
 
-- Les règles métier mentionnent « Framer Motion en priorité ». Le projet utilise uniquement **GSAP** (pas de Framer Motion dans les deps). Les animations sont déjà isolées (hooks, composants dédiés) et partiellement accessibles (reduced-motion sur nav et page transition).
-
-**Recommandation** : soit aligner les règles avec le choix actuel (GSAP), soit planifier une migration vers Framer Motion pour les nouveaux écrans tout en gardant GSAP pour les timelines complexes existantes si besoin. Pas de changement obligatoire côté code tant que la stack est cohérente et documentée.
-
-**Priorité** : basse (décision produit/équipe).
+- **Fait** : stack **GSAP** documentée dans `docs/ARCHITECTURE_NOTE.md` (transitions, menu mobile, overlays, modale, carousel). Pas de Framer Motion ; règles produit à aligner sur ce choix si besoin.
 
 ---
 
@@ -109,7 +102,9 @@ Analyse réalisée en tant que développeur React/Next.js senior, au regard des 
 | Moyenne | Erreurs | Fait (error.tsx + loading.tsx). |
 | Basse | Code splitting | Fait (dynamic sur testimonials + contact). |
 | Basse | Export navigation | Fait (Header + HeaderScrollEffect depuis index). |
-| Basse | Types / Framer Motion | Non fait (optionnel : dossier `/types`, doc stack animation). |
+| Basse | Layout typing | Fait (RootLayoutProps + JSDoc). |
+| Basse | Stack animation | Fait (doc dans ARCHITECTURE_NOTE). |
+| Basse | Dossier `/types` | Non fait (optionnel, garder types au plus près). |
 
 ---
 
@@ -128,4 +123,4 @@ Analyse réalisée en tant que développeur React/Next.js senior, au regard des 
 - [x] Point d’entrée navigation (Header exporté depuis index)  
 - [x] Code splitting (next/dynamic sur testimonials et contact)  
 
-Refacto senior appliquée ; seuls restent optionnels : dossier `/types`, typage explicite layout, clarification stack animation (GSAP).
+Refacto senior appliquée ; layout typé et stack GSAP documentée. Optionnel : dossier `/types` si partage de types entre features.

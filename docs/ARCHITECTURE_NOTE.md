@@ -19,7 +19,8 @@ Synthèse après analyse complète de la codebase et refactors ciblés (DRY, SOL
 ### Qualité
 - **Design system** : variables CSS centralisées (`globals.css`), classes utilitaires (glass, overlay, btn-cta, safe-area).
 - **i18n** : next-intl avec clés de traduction cohérentes.
-- **Accessibilité** : aria-label, role="dialog", aria-modal sur les overlays.
+- **Accessibilité** : aria-label, role="dialog", aria-modal sur les overlays ; `prefers-reduced-motion` respecté (nav, page transition, About overlay, Contact modal).
+- **Animations** : stack **GSAP** (transitions de page, menu mobile, overlays About, modale Contact, carousel Testimonials). Pas de Framer Motion ; les animations sont isolées dans des hooks/composants dédiés.
 
 ---
 
