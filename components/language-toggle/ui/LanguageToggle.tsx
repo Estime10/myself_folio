@@ -25,8 +25,8 @@ export function LanguageToggle({ currentLocale }: LanguageToggleProps) {
               transition-all
               ${
                 currentLocale === lang.code
-                  ? "text-black"
-                  : "text-text-primary lg:hover:text-black hover:cursor-pointer"
+                  ? "text-white/50"
+                  : "text-text-primary lg:hover:text-white/50 hover:cursor-pointer"
               }
               ${isPending ? "opacity-50 cursor-not-allowed" : ""}
             `}
