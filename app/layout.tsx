@@ -5,8 +5,7 @@ import { inter, jetbrainsMono } from "@/lib/config/fonts";
 import { getUserLocale } from "@/lib/locale";
 import "./globals.css";
 import { PageTransition } from "@/components/page-transition";
-import { Header } from "@/features/navigation/Header";
-import { HeaderScrollEffect } from "@/features/navigation/HeaderScrollEffect";
+import { Header, HeaderScrollEffect } from "@/features/navigation";
 import { HeroBackground } from "@/features/hero/ui/hero-background/HeroBackground";
 
 type Props = {

@@ -36,50 +36,22 @@ Analyse réalisée en tant que développeur React/Next.js senior, au regard des 
 
 ## 2. Améliorations recommandées
 
-### 2.1 Styles inline (règle « zéro style inline »)
+### 2.1 Styles inline (règle « zéro style inline ») — fait
 
-Aujourd’hui plusieurs composants utilisent `style={{ }}` alors que les valeurs correspondent à des variables CSS déjà définies. À remplacer par des classes pour rester cohérent avec le design system et faciliter la maintenance.
-
-| Fichier | Ligne | Actuel | Action recommandée |
-|--------|-------|--------|--------------------|
-| `features/about/ui/AboutMobile/AboutCardsGrid/AboutCardsGrid.tsx` | 37 | `style={{ color: "var(--accent-primary)" }}` | Classe utilitaire dans `globals.css` (ex. `.text-accent-primary`) ou Tailwind `text-[var(--accent-primary)]` / usage de `--color-accent-primary` si disponible. |
-| `features/about/ui/AboutDesktop/AboutImageCard/AboutImageCard.tsx` | 31 | `style={{ color: "var(--accent-primary)" }}` | Idem. |
-| `features/about/ui/AboutDesktop/AboutOverlay/AboutOverlay.tsx` | 78, 84, 90 | `style={{ height: BAR_HEIGHT }}` | Conserver le style inline si `BAR_HEIGHT` est une constante JS utilisée par GSAP ; sinon déplacer en variable CSS ou classe. |
-| `components/page-transition/PageTransition/SliceOverlay.tsx` | 73 | `style={{ background: "var(--bg-primary)" }}` | Ajouter dans `globals.css` : `.page-slice-strip { background: var(--bg-primary); }` et retirer le `style`. |
-| `features/hero/ui/hero-background/HeroBackground.tsx` | 8 | `style={{ backgroundImage: \`url('${HERO_IMAGE_PATH}')\` }}` | Exception acceptable (image dynamique) ; possible d’utiliser une variable CSS `--hero-image` définie côté layout/server si on veut tout centraliser. |
-
-**Priorité** : moyenne (cohérence et maintenabilité).
+- **Fait** : `.text-accent-primary` et `.page-slice-strip` ajoutés dans `globals.css` ; AboutCardsGrid, AboutImageCard et SliceOverlay utilisent ces classes.
+- **Conservé volontairement** : `AboutOverlay.tsx` — `style={{ height: BAR_HEIGHT }}` (constante GSAP). `HeroBackground.tsx` — `backgroundImage` dynamique (exception acceptable).
 
 ---
 
-### 2.2 Accessibilité — `prefers-reduced-motion`
+### 2.2 Accessibilité — `prefers-reduced-motion` — fait
 
-Les règles senior imposent le respect de `prefers-reduced-motion`. Aujourd’hui :
-
-- **Déjà respecté** : `PageTransition` / `SliceOverlay`, `useMobileMenuAnimation` (via `usePrefersReducedMotion`).
-- **Non branché** :
-  - **About** : `useAboutOverlayRevealAnimation` et animations de l’overlay mobile ne tiennent pas compte de `reducedMotion`.
-  - **Contact** : `ContactModal` (GSAP) utilise des durées fixes sans raccourcissement ni désactivation.
-
-**Recommandation** :
-
-1. Dans **About** : passer un flag `reducedMotion` (depuis un hook `usePrefersReducedMotion` au niveau parent) à `useAboutOverlayRevealAnimation` et aux composants d’overlay mobile ; si `reducedMotion`, mettre durées/stagger à 0 ou très court (comme pour `SliceOverlay` / `useMobileMenuAnimation`).
-2. Dans **Contact** : utiliser `usePrefersReducedMotion` dans `ContactModal` et, si `reducedMotion`, appliquer des durées 0 ou quasi-instantanées pour l’ouverture/fermeture.
-
-**Priorité** : haute (accessibilité).
+- **Fait** : `usePrefersReducedMotion` branché dans About (desktop `useAboutOverlayRevealAnimation` + mobile `AboutMobileOverlayContent`) et dans `ContactModal`. Durées à 0 ou quasi-instantanées lorsque l’utilisateur préfère moins de mouvement.
 
 ---
 
-### 2.3 Gestion d’erreurs et robustesse
+### 2.3 Gestion d’erreurs et robustesse — fait
 
-- **Pas de `error.tsx`** : aucune boundary d’erreur au niveau route. En cas d’erreur dans un Server Component ou lors du chargement des messages, l’utilisateur voit l’UI d’erreur par défaut de Next.js.
-- **Pas de `loading.tsx`** : pas d’état de chargement dédié par segment (acceptable si les pages sont très rapides ; à envisager si des données ou i18n ralentissent).
-
-**Recommandation** :
-
-- Ajouter au moins `app/error.tsx` (Client Component) pour une erreur générique plus maîtrisée et un message utilisateur clair.
-- Optionnel : `app/loading.tsx` et/ou `loading.tsx` par section si besoin UX (skeleton, spinner).
-
+- **Fait** : `app/error.tsx` (Client Component, message + bouton Réessayer). `app/loading.tsx` ajouté (placeholder centré pendant le chargement du segment).
 **Priorité** : moyenne.
 
 ---
@@ -93,14 +65,9 @@ Les règles senior imposent le respect de `prefers-reduced-motion`. Aujourd’hu
 
 ---
 
-### 2.5 Performance — code splitting
+### 2.5 Performance — code splitting — fait
 
-- Aucun usage de `next/dynamic` ou `React.lazy` repéré. Les sections lourdes (Testimonials carousel, Contact modal, About overlay) sont chargées dans le bundle initial.
-
-**Recommandation** (optionnelle, à mesurer) :
-
-- Utiliser `next/dynamic` avec `ssr: false` pour des blocs purement interactifs (ex. carousel Testimonials, modale Contact) si l’analyse de bundle montre un impact significatif sur le First Load.
-
+- **Fait** : `next/dynamic` utilisé sur les pages `/testimonials` et `/contact` pour découper les chunks (pas de `ssr: false` car les pages sont des Server Components).
 **Priorité** : basse à moyenne (après mesure).
 
 ---
@@ -115,11 +82,9 @@ Les règles senior imposent le respect de `prefers-reduced-motion`. Aujourd’hu
 
 ---
 
-### 2.7 Export du Header (navigation)
+### 2.7 Export du Header (navigation) — fait
 
-- `features/navigation/index.ts` n’exporte que `navigationItems` et `NavigationItem`. Le `Header` est importé directement depuis `@/features/navigation/Header` dans le layout.
-
-**Recommandation** : soit exporter aussi `Header` depuis `features/navigation/index.ts` pour un point d’entrée unique (`@/features/navigation`), soit documenter clairement que l’entrée publique de la feature est les items + types et que le layout compose avec `Header` volontairement en import direct. Les deux sont valides ; l’important est la cohérence.
+- **Fait** : `Header` et `HeaderScrollEffect` sont exportés depuis `features/navigation/index.ts`. Le layout importe depuis `@/features/navigation` (point d’entrée unique).
 
 **Priorité** : basse.
 
@@ -137,13 +102,14 @@ Les règles senior imposent le respect de `prefers-reduced-motion`. Aujourd’hu
 
 ## 3. Synthèse des priorités
 
-| Priorité | Sujet | Action |
+| Priorité | Sujet | Statut |
 |----------|--------|--------|
-| Haute | Accessibilité reduced-motion | Brancher `usePrefersReducedMotion` dans About overlay et Contact modal. |
-| Moyenne | Styles inline | Remplacer par classes (accent, SliceOverlay) ; garder height/backgroundImage si justifié. |
-| Moyenne | Erreurs | Ajouter `app/error.tsx` ; optionnel `loading.tsx`. |
-| Basse | Code splitting | Envisager `next/dynamic` pour blocs lourds après mesure. |
-| Basse | Index navigation / types / Framer Motion | Aligner exports ou docs ; garder ou introduire `/types` si partage ; clarifier stack d’animation. |
+| Haute | Accessibilité reduced-motion | Fait (About + Contact modal). |
+| Moyenne | Styles inline | Fait (classes .text-accent-primary, .page-slice-strip). |
+| Moyenne | Erreurs | Fait (error.tsx + loading.tsx). |
+| Basse | Code splitting | Fait (dynamic sur testimonials + contact). |
+| Basse | Export navigation | Fait (Header + HeaderScrollEffect depuis index). |
+| Basse | Types / Framer Motion | Non fait (optionnel : dossier `/types`, doc stack animation). |
 
 ---
 
@@ -155,9 +121,11 @@ Les règles senior imposent le respect de `prefers-reduced-motion`. Aujourd’hu
 - [x] Pas de fetch dans les composants UI  
 - [x] TypeScript strict, pas de `any`  
 - [x] Validation Zod des données externes (i18n)  
-- [ ] Zéro style inline (quelques écarts restants)  
-- [ ] `prefers-reduced-motion` sur toutes les animations (About, Contact à brancher)  
-- [ ] Gestion d’erreur explicite (error boundary)  
+- [x] Zéro style inline (écarts restants volontaires : BAR_HEIGHT, HeroBackground)  
+- [x] `prefers-reduced-motion` sur toutes les animations (About, Contact)  
+- [x] Gestion d’erreur explicite (error.tsx + loading.tsx)  
 - [x] Design system centralisé (globals.css, variables, Tailwind)  
+- [x] Point d’entrée navigation (Header exporté depuis index)  
+- [x] Code splitting (next/dynamic sur testimonials et contact)  
 
-En appliquant les points « haute » et « moyenne », la codebase sera alignée à un niveau senior sur l’essentiel (architecture, typage, accessibilité, maintenabilité).
+Refacto senior appliquée ; seuls restent optionnels : dossier `/types`, typage explicite layout, clarification stack animation (GSAP).
