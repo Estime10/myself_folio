@@ -2,12 +2,17 @@
 
 import Image from "next/image";
 import { Container } from "@/components/container/Container";
-import type { TestimonialBgItem } from "../../data/testimonialsBgConfig";
+import {
+  SITE_UNDER_CONSTRUCTION,
+  type TestimonialBgItem,
+} from "../../data/testimonialsBgConfig";
 
 type TestimonialsSlideProps = {
   contentRef: React.RefObject<HTMLDivElement | null>;
   item: TestimonialBgItem;
   projectNameLabel: string;
+  siteLabel: string;
+  siteUnderConstruction: string;
   quoteText: string;
   isFirstSlide: boolean;
 };
@@ -16,9 +21,12 @@ export function TestimonialsSlide({
   contentRef,
   item,
   projectNameLabel,
+  siteLabel,
+  siteUnderConstruction,
   quoteText,
   isFirstSlide,
 }: TestimonialsSlideProps) {
+  const isSiteLink = item.site !== SITE_UNDER_CONSTRUCTION;
   return (
     <div ref={contentRef} className="absolute inset-0">
       <div className="absolute inset-0 bg-bg-primary-base">
@@ -31,10 +39,10 @@ export function TestimonialsSlide({
           priority={isFirstSlide}
         />
       </div>
-      <div className="absolute inset-0 bg-black/90" aria-hidden />
+      <div className="absolute inset-0 bg-black/80" aria-hidden />
 
       {/* Image centrée au milieu (même src que le bg), entre titre et citation — masquée en mobile */}
-      <div
+      {/* <div
         className="absolute inset-0 z-10 hidden items-center justify-center px-4 md:flex"
         aria-hidden
       >
@@ -47,7 +55,7 @@ export function TestimonialsSlide({
             sizes="(max-width: 768px) 75vw, 420px"
           />
         </div>
-      </div>
+      </div> */}
 
       <Container className="absolute left-0 right-0 top-28 z-20">
         <div>
@@ -61,9 +69,26 @@ export function TestimonialsSlide({
       </Container>
 
       <Container className="absolute bottom-24 left-0 right-0 z-20 md:bottom-11">
-        <blockquote className="max-w-2xl text-base leading-relaxed text-text-secondary/90 md:text-lg">
-          &ldquo;{quoteText}&rdquo;
-        </blockquote>
+        <div className="flex flex-col gap-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-text-secondary/80">
+            {siteLabel}:{" "}
+            {isSiteLink ? (
+              <a
+                href={item.site}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-text-primary underline decoration-text-secondary/50 underline-offset-2 transition-colors hover:decoration-text-primary"
+              >
+                {item.title}
+              </a>
+            ) : (
+              <span className="text-text-secondary">{siteUnderConstruction}</span>
+            )}
+          </p>
+          <blockquote className="max-w-2xl text-base leading-relaxed text-text-primary md:text-lg">
+            &ldquo;{quoteText}&rdquo;
+          </blockquote>
+        </div>
       </Container>
     </div>
   );

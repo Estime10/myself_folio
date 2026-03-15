@@ -33,9 +33,12 @@
   },
   "testimonials": {
     "projectNameLabel": "Project name",
+    "siteLabel": "Site",
+    "siteUnderConstruction": "Under construction",
     "prev": "Previous",
     "next": "Next",
     "quotes": {
+      "enna_consulting": "Estime designed a clean, minimal website for our consulting firm. He understood that we needed something refined and professional — no clutter, just clarity. The result is an elegant, easy-to-navigate site that reflects our positioning and makes a strong impression. We are very satisfied with the outcome.",
       "jikowood": "Estime perfectly understood our vision and turned it into a clear, professional website. He was able to translate our craft expertise into a modern digital presence that fits our brand. The collaboration was smooth, with great communication and responsiveness. He also advised us on the site structure and user experience. The result is exactly what we wanted.",
       "purpose_sport": "Estime developed a platform designed for our real needs in the field. He quickly understands functional challenges and proposes simple, effective solutions. His structured approach and ability to turn ideas into concrete features made the project very enjoyable to build. We particularly appreciated his availability and adaptability throughout the development.",
       "maxweljones": "Very good collaboration with Estime from start to finish. He designed a clean, scalable platform with a well-organized technical foundation. Beyond development, he brings real product thinking and consistent visual direction. His autonomy, reliability and ability to suggest improvements really make a difference in a digital project.",

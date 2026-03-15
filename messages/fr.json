@@ -33,9 +33,12 @@
   },
   "testimonials": {
     "projectNameLabel": "Nom du projet",
+    "siteLabel": "Site",
+    "siteUnderConstruction": "En construction",
     "prev": "Précédent",
     "next": "Suivant",
     "quotes": {
+      "enna_consulting": "Estime a conçu un site épuré et minimal pour notre cabinet de conseil. Il a bien compris notre besoin de quelque chose de raffiné et professionnel — pas de superflu, juste de la clarté. Le résultat est un site élégant, facile à parcourir, qui reflète notre positionnement et fait une vraie impression. Nous sommes très satisfaits du rendu.",
       "jikowood": "Estime a parfaitement compris notre vision et l'a transformée en un site clair et professionnel. Il a su traduire notre savoir-faire artisanal en une présence digitale moderne et cohérente avec notre image. La collaboration a été fluide, avec une excellente communication et beaucoup de réactivité. Il a également su nous conseiller sur la structure du site et l'expérience utilisateur. Le résultat correspond exactement à ce que nous voulions.",
       "purpose_sport": "Estime a développé une plateforme pensée pour nos besoins réels sur le terrain. Il comprend rapidement les enjeux fonctionnels et propose des solutions simples et efficaces. Son approche structurée et sa capacité à transformer des idées en fonctionnalités concrètes ont rendu le projet très agréable à construire. Nous avons particulièrement apprécié sa disponibilité et sa capacité d'adaptation tout au long du développement.",
       "maxweljones": "Très bonne collaboration avec Estime du début à la fin du projet. Il a su concevoir une plateforme propre, évolutive et bien organisée techniquement. Au-delà du développement, il apporte une vraie réflexion produit et une direction visuelle cohérente. Son autonomie, sa fiabilité et sa capacité à proposer des améliorations font vraiment la différence dans un projet digital.",

@@ -21,6 +21,8 @@ export function TestimonialsSection() {
         contentRef={contentRef}
         item={current}
         projectNameLabel={t("projectNameLabel")}
+        siteLabel={t("siteLabel")}
+        siteUnderConstruction={t("siteUnderConstruction")}
         quoteText={t(`quotes.${current.id}`)}
         isFirstSlide={currentIndex === 0}
       />
